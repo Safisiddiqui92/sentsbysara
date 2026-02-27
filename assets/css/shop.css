@@ -16,9 +16,9 @@
 }
 
 .shop-hero p {
-    color: var(--text-primary);
+    color: var(--color-taupe);
     line-height: 1.6;
-    max-width: 800px;
+    /* max-width: 800px; */
 }
 
 .filter-toolbar {
