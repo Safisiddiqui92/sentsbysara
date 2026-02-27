@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>She is Lust | Scents by Sara</title>
+    <link rel="stylesheet" href="https://use.typekit.net/abn0bto.css">
     <link rel="stylesheet" href="css/design-tokens.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
@@ -25,7 +26,7 @@
         <div class="header-top container">
             <!-- Left: Search Icon -->
             <div class="header-left">
-                <button aria-label="Search" class="icon-btn">
+                <button aria-label="Search" class="icon-btn search-toggle">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
@@ -78,11 +79,11 @@
             </div>
         </div>
 
-        <!-- Bottom: Navigation Links -->
+        <!-- Bottom: Navigation Links (Desktop) -->
         <div class="header-bottom">
             <nav class="nav-links">
                 <div class="nav-item has-mega-menu">
-                    <a href="shop.html">SHOP ALL</a>
+                    <a href="shop.html">SHOP</a>
 
                     <!-- Mega Menu Dropdown -->
                     <div class="mega-menu">
@@ -134,12 +135,25 @@
                         </div>
                     </div>
                 </div>
-                <a href="shop.html">BEST SELLERS</a>
                 <a href="shop.html">GIFTS</a>
                 <a href="your-story.html">OUR STORY</a>
                 <a href="your-story.html">YOUR STORY</a>
                 <a href="#">CONTACT US</a>
             </nav>
+        </div>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="container search-container">
+                <input type="text" class="search-input" placeholder="Search for products, collections...">
+                <button class="icon-btn search-close" aria-label="Close Search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -219,7 +233,7 @@
 
                 <!-- Accordions -->
                 <div class="accordion-wrapper mb-8">
-                    <div class="accordion">
+                    <div class="accordion active">
                         <div class="accordion-header">DESCRIPTION</div>
                         <div class="accordion-body">
                             <p>Shaped by time, She is Lust celebrates the body through change.</p>
@@ -234,18 +248,28 @@
                     </div>
                     <div class="accordion">
                         <div class="accordion-header" style="background:transparent; padding-left:0; padding-right:0;">
-                            CRAFT & INTENTION <span style="font-size:16px;">+</span></div>
+                            CRAFT & INTENTION</div>
+                        <div class="accordion-body">
+                            <p>Hand-poured with intention using vegan soy wax and premium fragrance oils.</p>
+                        </div>
                     </div>
                     <div class="accordion">
                         <div class="accordion-header" style="background:transparent; padding-left:0; padding-right:0;">
-                            HOW TO USE <span style="font-size:16px;">+</span></div>
+                            HOW TO USE</div>
+                        <div class="accordion-body">
+                            <p>Place on a heat-resistant surface. Trim wick to 5mm before lighting.</p>
+                        </div>
                     </div>
                     <div class="accordion">
                         <div class="accordion-header"
                             style="background:transparent; padding-left:0; padding-right:0; border-bottom:1px solid rgba(231,227,220,1);">
-                            DIMENSIONS & INGREDIENTS <span style="font-size:16px;">+</span></div>
+                            DIMENSIONS & INGREDIENTS</div>
+                        <div class="accordion-body">
+                            <p>Height: 12cm. Ingredients: Soy Wax, Vanilla Fragrance Oil.</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
@@ -302,11 +326,11 @@
     <section class="section-block commitment-section" style="padding-bottom: 24px; padding-top: 120px;">
         <div class="container grid-cols-2">
             <div class="commitment-image">
-                <img src="assets/images/our-commitment.png" alt="Matches and candle">
+                <img src="assets/images/our-commitment-left.png" alt="Matches and candle">
             </div>
             <div class="commitment-text mt-8">
                 <span class="text-micro text-muted eyebrow">OUR COMMITMENT</span>
-                <h2 class="font-serif text-h1 mt-4">INTENTIONAL DESIGN IN<br>SCENT AND DESIGN.</h2>
+                <h2 class="font-serif text-h1 mt-4">INTENTIONAL DESIGN IN<br>SCENT AND FORM.</h2>
                 <div class="mt-8">
                     <p class="text-sm mt-8" style="max-width:480px;">Every material used by Scents by Sara is chosen for
                         performance, longevity, and environmental consideration.</p>
@@ -536,8 +560,33 @@
         </div>
     </footer>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content container">
+            <button class="icon-btn close-mobile-menu" aria-label="Close Menu">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="shop.html">SHOP ALL</a>
+                <a href="shop.html">BEST SELLERS</a>
+                <a href="shop.html">GIFTS</a>
+                <a href="your-story.html">OUR STORY</a>
+                <a href="your-story.html">YOUR STORY</a>
+                <a href="#">CONTACT US</a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <a href="shop.html" class="btn-outline full-width-btn" style="text-align: center;">SHOP NOW</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/product.js"></script>
 </body>
 
 </html>

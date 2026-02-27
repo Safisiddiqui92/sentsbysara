@@ -170,7 +170,14 @@
 
 .btn-add-bag {
     flex: 1;
+    transition: all 0.3s ease;
 }
+
+.btn-add-bag.success {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+}
+
 
 /* ACCORDIONS */
 .accordion {
@@ -189,12 +196,23 @@
 }
 
 .accordion-body {
-    background-color: var(--bg-secondary);
-    padding: 24px;
-    font-size: 14px;
-    line-height: 1.6;
     margin-bottom: 24px;
+    display: none;
 }
+
+.accordion.active .accordion-body {
+    display: block;
+}
+
+.accordion.active .accordion-header::after {
+    content: '-';
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 18px;
+}
+
 
 .accordion-wrapper .accordion {
     border-top: none;

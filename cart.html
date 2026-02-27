@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Bag | Scents by Sara</title>
+    <link rel="stylesheet" href="https://use.typekit.net/abn0bto.css">
     <link rel="stylesheet" href="css/design-tokens.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
@@ -105,31 +106,75 @@
 </head>
 
 <body>
-    <!-- STANDARD HEADER -->
-    <div class="announcement-bar">LAUNCHING MARCH 2026 - JOIN THE WAIT LIST FOR EARLY ACCESS</div>
-    <header class="site-header" style="border-bottom: 1px solid var(--bg-secondary);">
-        <!-- Header structure... -->
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        LAUNCHING MARCH 2026 - JOIN THE WAIT LIST FOR EARLY ACCESS
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
         <div class="header-top container">
-            <div class="header-left"><button aria-label="Search" class="icon-btn"><svg width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                        stroke-linejoin="round">
+            <!-- Left: Search Icon -->
+            <div class="header-left">
+                <button aria-label="Search" class="icon-btn search-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg></button></div>
-            <div class="header-center"><a href="index.html" class="logo-text font-serif">SCENTS BY SARA</a></div>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Center: Logo -->
+            <div class="header-center">
+                <a href="index.html" class="logo-text font-serif">SCENTS BY SARA</a>
+                <a href="index.html" class="logo-mobile font-serif">BYSARA</a>
+            </div>
+
+            <!-- Right: Icons & Hamburger -->
             <div class="header-right nav-icons">
-                <button aria-label="Cart" class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <button aria-label="Account" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button aria-label="Wishlist" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </button>
+                <button aria-label="Cart" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg></button>
+                    </svg>
+                </button>
+
+                <!-- Hamburger Menu Toggle (Mobile Only) -->
+                <button class="hamburger-btn icon-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
+
+        <!-- Bottom: Navigation Links (Desktop) -->
         <div class="header-bottom">
             <nav class="nav-links">
                 <div class="nav-item has-mega-menu">
-                    <a href="shop.html">SHOP ALL</a>
+                    <a href="shop.html">SHOP</a>
 
                     <!-- Mega Menu Dropdown -->
                     <div class="mega-menu">
@@ -181,9 +226,25 @@
                         </div>
                     </div>
                 </div>
+                <a href="shop.html">GIFTS</a>
                 <a href="your-story.html">OUR STORY</a>
                 <a href="your-story.html">YOUR STORY</a>
+                <a href="#">CONTACT US</a>
             </nav>
+        </div>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="container search-container">
+                <input type="text" class="search-input" placeholder="Search for products, collections...">
+                <button class="icon-btn search-close" aria-label="Close Search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -359,6 +420,31 @@
         </div>
     </footer>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content container">
+            <button class="icon-btn close-mobile-menu" aria-label="Close Menu">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="shop.html">SHOP ALL</a>
+                <a href="shop.html">BEST SELLERS</a>
+                <a href="shop.html">GIFTS</a>
+                <a href="your-story.html">OUR STORY</a>
+                <a href="your-story.html">YOUR STORY</a>
+                <a href="#">CONTACT US</a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <a href="shop.html" class="btn-outline full-width-btn" style="text-align: center;">SHOP NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 

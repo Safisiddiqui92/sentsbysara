@@ -8,9 +8,11 @@
 }
 
 .shop-hero .text-h1 {
+    font-family: var(--font-serif);
     font-size: 48px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     letter-spacing: 0.05em;
+    color: var(--color-mocha);
 }
 
 .shop-hero p {
@@ -114,12 +116,21 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
     display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.swatch.active {
+    border-color: var(--color-mocha);
+    transform: scale(1.2);
 }
 
 .swatch-white {
     background-color: #FFFFFF;
+    border: 1px solid #eee;
 }
 
 .swatch-tan {
@@ -145,11 +156,13 @@
     margin-bottom: 4px;
     display: block;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .shop-card .product-desc {
     font-family: var(--font-sans);
     font-size: 10px;
+    font-weight: 400;
     color: var(--color-taupe);
     text-transform: none;
     letter-spacing: 0;
@@ -161,12 +174,13 @@
     font-size: 11px;
     font-weight: 700;
     color: var(--color-mocha);
+    letter-spacing: 0.02em;
 }
 
 .btn-shop-now {
     width: 100%;
-    padding: 14px 0;
-    font-size: 10px;
+    padding: 16px 0;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.15em;
     border: 1px solid var(--color-clay);
@@ -183,4 +197,75 @@
     background-color: var(--color-mocha);
     color: var(--color-sand);
     border-color: var(--color-mocha);
+}
+
+/* --- Filter Overlay --- */
+.filter-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-overlay.active {
+    right: 0;
+}
+
+@media (max-width: 480px) {
+    .filter-overlay {
+        width: 100%;
+    }
+}
+
+.filter-header h3 {
+    font-size: 24px;
+    letter-spacing: 0.1em;
+}
+
+.filter-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-y: auto;
+    padding-bottom: 40px;
+}
+
+.filter-group h4 {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    color: var(--color-mocha);
+    font-weight: 700;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    color: var(--color-taupe);
+}
+
+.filter-group input {
+    margin-right: 12px;
+    accent-color: var(--color-mocha);
+}
+
+.filter-footer {
+    border-top: 1px solid var(--border-light);
+    padding-top: 32px;
+    background: #fff;
+}
+
+.filter-footer .btn-solid {
+    padding: 14px 40px;
 }
