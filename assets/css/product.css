@@ -262,7 +262,7 @@
 
 /* SCENTS SECTION */
 .scents-section {
-    padding: 100px 0;
+    padding: 0;
     background-color: var(--bg-primary);
 }
 
@@ -326,6 +326,69 @@
     font-weight: 400;
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.9);
+}
+
+/* COMMITMENT GRID (Product Page Specific) */
+.product-commitment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.commitment-img-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.commitment-content-col {
+    background-color: #EBE8E3;
+    /* Matches exactly with the screenshot's right side background */
+    padding: 120px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.commitment-content-col .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #8C8276;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+    font-weight: 500;
+}
+
+.commitment-content-col h2 {
+    font-size: 32px;
+    font-family: var(--font-serif);
+    line-height: 1.2;
+    color: var(--color-mocha);
+    margin-bottom: 24px;
+    max-width: 480px;
+}
+
+.commitment-content-col .desc {
+    font-size: 13px;
+    color: var(--color-slate);
+    margin-bottom: 40px;
+    line-height: 1.5;
+    max-width: 420px;
+}
+
+.commitment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.commitment-list-item {
+    font-size: 14px;
+    color: #A39382;
+    font-weight: 500;
 }
 
 /* YOU MAY ALSO LIKE */
