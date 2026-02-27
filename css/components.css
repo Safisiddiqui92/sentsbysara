@@ -473,7 +473,24 @@
 }
 
 
-/* --- 4. PRODUCT CARDS --- */
+/* --- 4. BEST SELLERS & PRODUCT CARDS --- */
+.best-sellers {
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+}
+
+.best-sellers .section-title {
+    margin-bottom: 60px;
+    letter-spacing: 0.1em;
+    font-size: 32px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
 .product-image-wrap {
     width: 100%;
     aspect-ratio: 4/5;
@@ -497,24 +514,59 @@
 }
 
 .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     margin-bottom: 16px;
+    padding-top: 8px;
+}
+
+.product-name {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-slate);
+    text-transform: uppercase;
+}
+
+.product-price {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.price-strikethrough {
+    font-size: 11px;
+    color: var(--color-taupe);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.price-current {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-slate);
 }
 
 .product-btn {
     width: 100%;
-    font-size: 10px;
-    padding: 16px 0;
+    font-size: 11px;
+    padding: 14px 0;
     border: 1px solid var(--color-slate);
     background: transparent;
     color: var(--color-slate);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     transition: all 0.3s;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-btn:hover {
     background-color: var(--color-mocha);
-    /* Strict Mocha Hover Required */
     color: var(--color-sand);
     border-color: var(--color-mocha);
 }
@@ -736,7 +788,7 @@
 
 .collection-card h3 {
     font-family: var(--font-serif);
-    font-size: var(--text-h2);
+    font-size: 28px;
     color: var(--color-mocha);
     margin-bottom: var(--space-md);
     letter-spacing: 0.02em;
