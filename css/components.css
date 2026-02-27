@@ -513,40 +513,39 @@
     transform: scale(1.03);
 }
 
-.product-info {
+.product-info-stacked {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 16px;
-    padding-top: 8px;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+    padding-top: 12px;
 }
 
 .product-name {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.1em;
-    color: var(--color-slate);
+    color: var(--color-mocha);
+    text-transform: uppercase;
+}
+
+.product-scent {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--color-taupe);
     text-transform: uppercase;
 }
 
 .product-price {
-    display: flex;
-    gap: 8px;
-    align-items: baseline;
-}
-
-.price-strikethrough {
-    font-size: 11px;
-    color: var(--color-taupe);
-    text-decoration: line-through;
-    opacity: 0.6;
+    margin-top: 4px;
 }
 
 .price-current {
     font-size: 11px;
-    font-weight: 600;
-    color: var(--color-slate);
+    font-weight: 700;
+    color: var(--color-mocha);
 }
 
 .product-btn {
@@ -555,11 +554,11 @@
     padding: 14px 0;
     border: 1px solid var(--color-slate);
     background: transparent;
-    color: var(--color-slate);
+    color: var(--color-mocha);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     transition: all 0.3s;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
