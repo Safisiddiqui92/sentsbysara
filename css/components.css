@@ -618,6 +618,82 @@
 }
 
 
+/* --- 5. STORY SPLIT SECTION --- */
+.story-split {
+    background-color: var(--bg-secondary);
+    width: 100%;
+    margin-top: var(--space-section);
+}
+
+.story-split .grid-cols-2 {
+    gap: 0;
+    max-width: none;
+    align-items: stretch;
+}
+
+.story-text-block {
+    padding: var(--space-4xl) var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 700px;
+    text-align: center;
+}
+
+.story-text-block .eyebrow {
+    color: var(--color-taupe);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-micro);
+    letter-spacing: 0.2em;
+}
+
+.story-text-block h2 {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+    color: var(--color-mocha);
+    max-width: 600px;
+}
+
+.story-text-block p {
+    color: var(--color-taupe);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-body);
+}
+
+.story-img-block {
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;
+}
+
+.story-img-block img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .story-split .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .story-img-block {
+        aspect-ratio: 1/1;
+        min-height: 400px;
+    }
+
+    .story-text-block {
+        padding: var(--space-2xl) var(--space-lg);
+        min-height: auto;
+    }
+}
+
 /* --- 6. SITE FOOTER (FINAL REBUILT FOR FOOTER-FIX.PNG) --- */
 .site-footer {
     background-color: var(--bg-secondary);
@@ -715,7 +791,7 @@
 
 .footer-link-list a {
     font-size: 15px;
-    color: var(--color-mocha);
+    color: var(--color-taupe);
     transition: opacity 0.3s;
 }
 

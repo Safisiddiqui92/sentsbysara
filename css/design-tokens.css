@@ -39,6 +39,8 @@
     --announcement-height: 38px;
     --container-max: 1920px;
     /* Edge-to-edge max width */
+    --container-editorial: 800px;
+    /* For narrow text blocks */
     --content-max: 1720px;
     /* Inner content block */
     --gutter: 100px;
