@@ -83,6 +83,17 @@
     text-transform: uppercase;
 }
 
+/* Global Eyebrow Style */
+.eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
 .social-link {
     display: inline-flex;
     align-items: center;
@@ -639,10 +650,12 @@
 }
 
 .commitment-text h2 {
+    font-family: var(--font-serif);
     font-size: 40px;
     line-height: 1.1;
     color: var(--color-taupe);
     margin-bottom: var(--space-xl);
+    text-transform: uppercase;
 }
 
 .commitment-items {
@@ -653,6 +666,7 @@
 }
 
 .commitment-item h3 {
+    font-family: var(--font-sans);
     font-size: var(--text-small);
     font-weight: 700;
     color: var(--color-mocha);
@@ -721,10 +735,12 @@
 }
 
 .collection-card h3 {
+    font-family: var(--font-serif);
     font-size: var(--text-h2);
     color: var(--color-mocha);
     margin-bottom: var(--space-md);
     letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .collection-card p {
@@ -762,19 +778,16 @@
     text-align: center;
 }
 
-.story-text-block .eyebrow {
-    color: var(--color-taupe);
-    margin-bottom: var(--space-md);
-    font-size: var(--text-micro);
-    letter-spacing: 0.2em;
-}
+
 
 .story-text-block h2 {
+    font-family: var(--font-serif);
     font-size: 40px;
     line-height: 1.1;
     margin-bottom: var(--space-lg);
     color: var(--color-mocha);
     max-width: 600px;
+    text-transform: uppercase;
 }
 
 .story-text-block p {

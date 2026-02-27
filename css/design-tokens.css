@@ -51,7 +51,7 @@
     --border-footer-divider: 1px solid rgba(63, 50, 41, 0.15);
 
     /* 4. Typography Scale */
-    --font-serif: "RL Limo", serif;
+    --font-serif: "rl-limo", serif;
     --font-sans: "Suisse Int'l", sans-serif;
 
     --text-hero: 56px;
@@ -76,6 +76,30 @@
     font-family: 'Suisse Int\'l';
     src: url('../assets/fonts/SuisseIntl-Regular.woff2') format('woff2');
     font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Int\'l';
+    src: url('../assets/fonts/SuisseIntl-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Int\'l';
+    src: url('../assets/fonts/SuisseIntl-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Int\'l';
+    src: url('../assets/fonts/SuisseIntl-Semibold.woff2') format('woff2');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
