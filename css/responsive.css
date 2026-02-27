@@ -17,6 +17,14 @@
         --gutter: 48px;
     }
 
+    .footer-bottom-row {
+        display: block;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     /* Grid overrides */
     .grid-cols-4 {
         grid-template-columns: repeat(3, 1fr);
@@ -52,6 +60,11 @@
     .nav-icons .hamburger-btn {
         display: flex !important;
     }
+
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
 }
 
 /* --- 768px (Mobile & Tablet Portrait) --- */
@@ -66,10 +79,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .grid-cols-2 {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-    }
+
 
     /* Sections */
     .section-block {
@@ -129,6 +139,10 @@
         bottom: -40px;
         right: -20px;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* --- 480px (Small Mobile Threshold) --- */
@@ -136,6 +150,11 @@
     .grid-cols-4 {
         grid-template-columns: 1fr;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }
 
 /* --- 375px (iPhone SE Size) --- */

@@ -16,7 +16,7 @@
 /* PRODUCT MAIN CONTAINER */
 .product-main {
     gap: 64px;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
 }
 
 /* PRODUCT IMAGES */
@@ -393,7 +393,7 @@
 
 /* YOU MAY ALSO LIKE */
 .related-products {
-    padding: 60px 0;
+    padding-top: 60px;
     border-bottom: 1px solid var(--border-light);
 }
 
