@@ -618,7 +618,128 @@
 }
 
 
-/* --- 5. STORY SPLIT SECTION --- */
+/* --- 5. COMMITMENT SECTION --- */
+.commitment-section {
+    background-color: var(--bg-primary);
+    padding: var(--space-4xl) 0;
+}
+
+.commitment-section .container {
+    align-items: center;
+}
+
+.commitment-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.commitment-text {
+    padding-left: var(--gutter);
+}
+
+.commitment-text h2 {
+    font-size: 40px;
+    line-height: 1.1;
+    color: var(--color-taupe);
+    margin-bottom: var(--space-xl);
+}
+
+.commitment-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.commitment-item h3 {
+    font-size: var(--text-small);
+    font-weight: 700;
+    color: var(--color-mocha);
+    margin-bottom: var(--space-xs);
+    text-transform: none;
+}
+
+.commitment-item p {
+    font-size: var(--text-small);
+    color: var(--color-taupe);
+    line-height: 1.6;
+}
+
+.commitment-link {
+    font-size: var(--text-micro);
+    letter-spacing: 0.1em;
+    color: var(--color-mocha);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--color-taupe);
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.commitment-link:hover {
+    opacity: 0.7;
+}
+
+/* --- 6. COLLECTIONS SECTION --- */
+.collections-section {
+    background-color: var(--bg-primary);
+    padding-bottom: var(--space-4xl);
+}
+
+.collection-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.collection-image-wrap {
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+}
+
+.collection-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection-card:hover .collection-image-wrap img {
+    transform: scale(1.03);
+}
+
+.collection-content {
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collection-card h3 {
+    font-size: var(--text-h2);
+    color: var(--color-mocha);
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.02em;
+}
+
+.collection-card p {
+    font-size: var(--text-small);
+    color: var(--color-taupe);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.collection-card .btn-outline {
+    width: 100%;
+    padding: 16px 0;
+}
+
+/* --- 7. STORY SPLIT SECTION --- */
 .story-split {
     background-color: var(--bg-secondary);
     width: 100%;
@@ -694,7 +815,7 @@
     }
 }
 
-/* --- 6. SITE FOOTER (FINAL REBUILT FOR FOOTER-FIX.PNG) --- */
+/* --- 8. SITE FOOTER (FINAL REBUILT FOR FOOTER-FIX.PNG) --- */
 .site-footer {
     background-color: var(--bg-secondary);
     padding: 100px 0 64px;
