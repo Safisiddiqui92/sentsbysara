@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Scents by Sara</title>
+    <link rel="stylesheet" href="css/design-tokens.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+
+<body class="checkout-layout">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        LAUNCHING MARCH 2026 - JOIN THE WAIT LIST FOR EARLY ACCESS
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header" style="border-bottom: 1px solid var(--bg-secondary);">
+        <div class="header-top container">
+            <div class="header-left">
+                <button aria-label="Search" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="logo-text font-serif">SCENTS BY SARA</a>
+                <a href="index.html" class="logo-mobile font-serif">BYSARA</a>
+            </div>
+
+            <div class="header-right nav-icons">
+                <button aria-label="Account" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button aria-label="Wishlist" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </button>
+                <button aria-label="Cart" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+                <button class="hamburger-btn icon-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav class="nav-links">
+                <div class="nav-item has-mega-menu">
+                    <a href="shop.html">SHOP</a>
+
+                    <!-- Mega Menu Dropdown -->
+                    <div class="mega-menu">
+                        <div class="mega-menu-container">
+                            <div class="mega-menu-grid">
+                                <!-- Col 1 -->
+                                <div class="mega-col">
+                                    <h4>POPULAR</h4>
+                                    <ul>
+                                        <li><a href="shop.html">Shop All</a></li>
+                                        <li><a href="shop.html">Best Sellers</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Col 2 -->
+                                <div class="mega-col">
+                                    <h4>BODY CANDLES</h4>
+                                    <ul>
+                                        <li><a href="shop.html">All Body Candles</a></li>
+                                        <li><a href="shop.html">She is Timeless</a></li>
+                                        <li><a href="shop.html">She is Beauty</a></li>
+                                        <li><a href="shop.html">She is Lust</a></li>
+                                        <li><a href="shop.html">She is Strength</a></li>
+                                        <li><a href="shop.html">She is Power</a></li>
+                                        <li><a href="shop.html">She is You</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Col 3 -->
+                                <div class="mega-col">
+                                    <h4>SHOP BY SIZE</h4>
+                                    <ul>
+                                        <li><a href="shop.html">Slim</a></li>
+                                        <li><a href="shop.html">Curvy</a></li>
+                                        <li><a href="shop.html">Plus Size</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Col 4 -->
+                                <div class="mega-col">
+                                    <h4>SHOP BY COLLECTION</h4>
+                                    <ul>
+                                        <li><a href="shop.html">Scar Collection</a></li>
+                                        <li><a href="shop.html">Sculpted Collection</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Image Col -->
+                            <div class="mega-image-col">
+                                <img src="assets/images/product-2.png" alt="Featured Body Candles">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="your-story.html">OUR STORY</a>
+                <a href="your-story.html">YOUR STORY</a>
+                <a href="#">CONTACT US</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container checkout-container">
+        <!-- 60/40 Split Layout -->
+        <div class="checkout-main">
+
+            <!-- LEFT COLUMN: FORMS -->
+            <div class="checkout-form-col">
+                <div class="checkout-breadcrumbs">
+                    <a href="cart.html">BAG</a> /
+                    <span class="active">INFORMATION</span> /
+                    <span>SHIPPING</span> /
+                    <span>PAYMENT</span>
+                </div>
+
+                <div class="checkout-section">
+                    <h2>CONTACT</h2>
+                    <div class="form-group">
+                        <label class="form-label" for="email">EMAIL</label>
+                        <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="news" checked>
+                        <label for="news">Email me with news and offers</label>
+                    </div>
+                </div>
+
+                <div class="checkout-section mt-12">
+                    <h2>SHIPPING ADDRESS</h2>
+
+                    <div class="form-group">
+                        <label class="form-label" for="country">COUNTRY/REGION</label>
+                        <select id="country" class="form-input">
+                            <option>United Kingdom</option>
+                            <option>United States</option>
+                            <option>Europe</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row mt-4">
+                        <div class="form-group">
+                            <label class="form-label" for="firstname">FIRST NAME</label>
+                            <input type="text" id="firstname" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastname">LAST NAME</label>
+                            <input type="text" id="lastname" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label class="form-label" for="address">ADDRESS</label>
+                        <input type="text" id="address" class="form-input" placeholder="Street address">
+                    </div>
+
+                    <div class="form-row mt-4">
+                        <div class="form-group">
+                            <label class="form-label" for="city">CITY</label>
+                            <input type="text" id="city" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="postcode">POSTCODE</label>
+                            <input type="text" id="postcode" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group mt-6">
+                        <input type="checkbox" id="save-info">
+                        <label for="save-info">Save this information for next time</label>
+                    </div>
+                </div>
+
+                <div class="checkout-section mt-12">
+                    <h2>PAYMENT</h2>
+                    <p class="text-sm text-muted mb-6">All transactions are secure and encrypted</p>
+
+                    <div class="payment-box">
+                        <div class="form-group">
+                            <label class="form-label" for="cardnumber">CARD NUMBER</label>
+                            <input type="text" id="cardnumber" class="form-input bg-white"
+                                placeholder="1234 5678 9012 3456" style="background:#fff;">
+                        </div>
+                        <div class="form-row mt-4">
+                            <div class="form-group">
+                                <label class="form-label" for="expiry">EXPIRY DATE</label>
+                                <input type="text" id="expiry" class="form-input" placeholder="MM / YY"
+                                    style="background:#fff;">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cvc">SECURITY CODE</label>
+                                <input type="text" id="cvc" class="form-input" placeholder="CVC"
+                                    style="background:#fff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-solid mt-4 w-full" style="width: 100%;">COMPLETE ORDER</button>
+                    <p class="text-center text-sm text-muted mt-4" style="font-size:10px;">By completing your purchase,
+                        you agree to our Terms of Service and Privacy Policy</p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: ORDER SUMMARY -->
+            <div class="order-summary-col">
+                <h2 class="font-sans">ORDER SUMMARY</h2>
+
+                <div class="summary-items">
+                    <div class="summary-item">
+                        <div class="summary-product">
+                            <div class="summary-img-wrap">
+                                <span class="qty-badge">2</span>
+                                <img src="assets/images/product-1.png" alt="She Is Lust">
+                            </div>
+                            <div class="summary-details">
+                                <h4 class="font-sans">SHE IS LUST</h4>
+                                <p>CARAMEL · PLUS SIZE</p>
+                                <span class="summary-price mt-2 block font-sans">£40.52</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-item">
+                        <div class="summary-product">
+                            <div class="summary-img-wrap">
+                                <span class="qty-badge">1</span>
+                                <img src="assets/images/product-3.png" alt="She Is Grace">
+                            </div>
+                            <div class="summary-details">
+                                <h4 class="font-sans">SHE IS GRACE</h4>
+                                <p>IVORY · CURVY</p>
+                                <span class="summary-price mt-2 block font-sans">£20.26</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-totals">
+                    <div class="totals-row">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="font-sans">£60.78</span>
+                    </div>
+                    <div class="totals-row">
+                        <span class="text-muted">Shipping</span>
+                        <span class="font-sans">£5.00</span>
+                    </div>
+                    <div class="totals-row">
+                        <span class="text-muted">Tax (VAT)</span>
+                        <span class="font-sans">£12.16</span>
+                    </div>
+
+                    <div class="totals-row grand-total">
+                        <span class="font-sans">TOTAL</span>
+                        <span class="font-sans" style="font-size: 24px;">£77.94</span>
+                    </div>
+                </div>
+
+                <div class="summary-perks">
+                    <div class="perk-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <span>Secure checkout</span>
+                    </div>
+                    <div class="perk-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                        <span>Free shipping over £50</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

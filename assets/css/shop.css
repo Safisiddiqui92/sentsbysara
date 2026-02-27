@@ -1,0 +1,99 @@
+/* =========================================================================
+   SHOP PAGE STYLES (MATCHING shop-page.png)
+   ========================================================================= */
+
+.shop-hero {
+    text-align: left;
+    margin-bottom: 64px;
+}
+
+.shop-hero .text-h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.filter-toolbar {
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 0;
+    margin-bottom: 64px;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-heavy);
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.sort-dropdown {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-heavy);
+    padding: 12px 24px;
+    cursor: pointer;
+    min-width: 240px;
+    justify-content: space-between;
+}
+
+/* Product Card specific for shop */
+.shop-card {
+    margin-bottom: 32px;
+}
+
+.product-options {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.size-dropdown {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-light);
+    padding: 6px 12px;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.swatch-white {
+    background-color: #FFFFFF;
+}
+
+.swatch-tan {
+    background-color: #CE966B;
+}
+
+.swatch-brown {
+    background-color: #613C2B;
+}
+
+.product-info-shop {
+    margin-bottom: 24px;
+    align-items: flex-start;
+}
+
+.product-desc {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.btn-shop-now {
+    width: 100%;
+}
