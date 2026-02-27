@@ -517,14 +517,27 @@
 
 /* --- 5. TESTIMONIALS SLIDER --- */
 .testimonials-section {
-    padding: var(--space-section) 0;
+    padding: 100px 0;
     background-color: var(--bg-primary);
+    overflow: hidden;
+}
+
+.testimonials-section .section-title {
+    margin-bottom: 40px;
+}
+
+.stars {
+    font-size: 16px;
+    letter-spacing: 6px;
+    margin-bottom: 48px;
+    color: var(--color-taupe);
 }
 
 .testimonials-slider {
     position: relative;
-    overflow: hidden;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .testimonial-slide {
@@ -538,40 +551,70 @@
     opacity: 1;
 }
 
-.stars {
-    font-size: 20px;
-    letter-spacing: 4px;
-    margin-bottom: 40px;
-    color: var(--color-taupe);
+.testimonial-content {
+    position: relative;
+    padding: 0 100px;
 }
 
 .quote-mark {
     font-family: var(--font-serif);
-    font-size: 80px;
+    font-size: 32px;
     color: var(--color-clay);
     position: absolute;
-    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.6;
 }
 
 .quote-mark.left {
-    top: -30px;
-    left: -40px;
+    left: 0;
 }
 
 .quote-mark.right {
-    bottom: -60px;
-    right: -40px;
+    right: 18px;
+    /* Adjusted to balance visually as in screenshot */
 }
 
-.testimonial-content p {
-    font-size: 18px;
+.testimonial-text {
+    font-size: 20px;
     line-height: 1.6;
+    color: var(--color-mocha);
+    font-style: italic;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 32px;
+}
+
+.testimonial-author {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-mocha);
 }
 
 .testimonials-section .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 60px;
     position: relative;
-    margin-top: 48px;
     width: 100%;
+}
+
+.testimonials-section .dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--color-mocha);
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonials-section .dot.active {
+    background-color: var(--color-mocha);
 }
 
 
@@ -584,7 +627,7 @@
 
 .footer-main-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 3.5fr 1fr 1fr 1fr 1.5fr;
     gap: 40px;
     align-items: start;
 }
@@ -701,7 +744,7 @@
 }
 
 .footer-logo-text {
-    font-size: 96px;
+    font-size: 48px;
     line-height: 1;
     letter-spacing: 0.1em;
     color: var(--color-mocha);
