@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} | {{ shop.name }}</title>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/abn0bto.css">
+    
+    <!-- Design System Tokens & Layout -->
+    {{ 'design-tokens.css' | asset_url | stylesheet_tag }}
+    {{ 'layout.css' | asset_url | stylesheet_tag }}
+    {{ 'components.css' | asset_url | stylesheet_tag }}
+    {{ 'responsive.css' | asset_url | stylesheet_tag }}
+
+    <!-- Page Specific CSS -->
+    {% if template.name == 'index' %}
+        {{ 'index.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'product' %}
+        {{ 'product.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'collection' or template.name == 'search' %}
+        {{ 'shop.css' | asset_url | stylesheet_tag }}
+    {% elsif template == 'page.your-story' %}
+        {{ 'your-story.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+    {{ content_for_header }}
+</head>
+
+<body class="template-{{ template.name }}">
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+
+    <main id="MainContent" class="page-wrapper main-content" role="main" tabindex="-1">
+        {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    <!-- Global Javascript -->
+    {{ 'main.js' | asset_url | script_tag }}
+
+    {% if template.name == 'index' or template.name == 'collection' %}
+        {{ 'shop.js' | asset_url | script_tag }}
+    {% endif %}
+    {% if template.name == 'product' %}
+        {{ 'product.js' | asset_url | script_tag }}
+    {% endif %}
+
+</body>
+</html>

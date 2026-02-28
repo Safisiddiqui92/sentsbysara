@@ -1,0 +1,24 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero",
+            "blocks": {
+                "slide-1": {
+                    "type": "slide",
+                    "settings": {
+                        "subheading": "NEW COLLECTION",
+                        "heading": "BODY CANDLES",
+                        "link_text": "DISCOVER NOW",
+                        "link_url": "shopify:\/\/collections\/all"
+                    }
+                }
+            },
+            "block_order": [
+                "slide-1"
+            ]
+        }
+    },
+    "order": [
+        "hero"
+    ]
+}
