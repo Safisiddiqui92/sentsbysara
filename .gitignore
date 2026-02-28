@@ -1,0 +1,33 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+fix_links.py
+
+# Temporary Output Files
+tracked_files.txt
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
