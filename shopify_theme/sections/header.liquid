@@ -13,8 +13,18 @@
 
         <!-- Center: Logo -->
         <div class="header-center">
-            <a href="{{ routes.root_url }}" class="logo-text font-serif">SCENTS BY SARA</a>
-            <a href="{{ routes.root_url }}" class="logo-mobile font-serif">BYSARA</a>
+            {% if section.settings.logo != blank %}
+                <a href="{{ routes.root_url }}" class="logo-image">
+                    <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}">
+                </a>
+            {% else %}
+                <a href="{{ routes.root_url }}" class="logo-text font-serif">
+                    <img src="{{ 'logo-long.png' | asset_url }}" alt="SCENTS BY SARA" style="height: 24px; width: auto;">
+                </a>
+                <a href="{{ routes.root_url }}" class="logo-mobile font-serif">
+                    <img src="{{ 'logo-long.png' | asset_url }}" alt="BYSARA" style="height: 20px; width: auto;">
+                </a>
+            {% endif %}
         </div>
 
         <!-- Right: Icons & Hamburger -->
@@ -143,6 +153,11 @@
 {
   "name": "Header",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image (Desktop & Mobile)"
+    },
     {
       "type": "image_picker",
       "id": "mega_menu_image",
