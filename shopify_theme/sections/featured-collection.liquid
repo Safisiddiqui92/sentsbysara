@@ -1,0 +1,85 @@
+{% assign collection = collections[section.settings.collection] %}
+
+<section class="section-block best-sellers">
+    <div class="container text-center">
+        {% if section.settings.title != blank %}
+            <h2 class="section-title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="product-grid">
+            {% if collection != blank and collection.products_count > 0 %}
+                {% for product in collection.products limit: section.settings.limit %}
+                    <div class="product-card">
+                        <a href="{{ product.url }}" class="product-image-wrap" style="display:block; text-decoration:none;">
+                            {% if product.featured_image != blank %}
+                                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}">
+                            {% else %}
+                                <img src="{{ 'product-1.png' | asset_url }}" alt="Fallback Product">
+                            {% endif %}
+                        </a>
+                        <div class="product-info-stacked">
+                            <span class="product-name">{{ product.title }}</span>
+                            <!-- Assuming we use vendor or a metafield for scent, we might use tags. for now static fallback -->
+                            <span class="product-scent">{% if product.metafields.custom.scent %}{{ product.metafields.custom.scent }}{% else %}SIGNATURE{% endif %}</span>
+                            <div class="product-price">
+                                <span class="price-current">{{ product.price | money }}</span>
+                            </div>
+                        </div>
+                        <button class="product-btn" onclick="window.location.href='{{ product.url }}'">SHOP NOW</button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <!-- Empty State Fallback -->
+                {% for i in (1..4) %}
+                    <div class="product-card">
+                        <a href="#" class="product-image-wrap" style="display:block; text-decoration:none;">
+                            <img src="{{ 'product-' | append: i | append: '.png' | asset_url }}" alt="Fallback Model">
+                        </a>
+                        <div class="product-info-stacked">
+                            <span class="product-name">SHE IS DEFAULT</span>
+                            <span class="product-scent">JASMINE</span>
+                            <div class="product-price">
+                                <span class="price-current">£20.26</span>
+                            </div>
+                        </div>
+                        <button class="product-btn" onclick="window.location.href='#'">SHOP NOW</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "BEST SELLERS"
+    },
+    {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+    },
+    {
+        "type": "range",
+        "id": "limit",
+        "min": 2,
+        "max": 12,
+        "step": 2,
+        "label": "Products to show",
+        "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

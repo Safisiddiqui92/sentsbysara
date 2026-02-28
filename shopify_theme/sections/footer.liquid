@@ -20,23 +20,59 @@
                 </div>
             </div>
 
-            <!-- Link Columns -->
-            {% for block in section.blocks %}
+            <!-- 2. Shop All -->
             <div class="footer-links-col">
-                <h4 class="font-sans">{{ block.settings.title }}</h4>
-                <ul>
-                    {% for link in linklists[block.settings.menu].links %}
-                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                    {% endfor %}
+                <h4 class="footer-col-title">SHOP ALL</h4>
+                <ul class="footer-link-list">
+                    <li><a href="{{ routes.all_products_collection_url }}">Slim Body Candles</a></li>
+                    <li><a href="{{ routes.all_products_collection_url }}">Curvy Body Candles</a></li>
+                    <li><a href="{{ routes.all_products_collection_url }}">Plus Size Body Candles</a></li>
+                    <li><a href="{{ routes.all_products_collection_url }}">Custom Body Candles</a></li>
                 </ul>
             </div>
-            {% endfor %}
+
+            <!-- 3. About Us -->
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">ABOUT US</h4>
+                <ul class="footer-link-list">
+                    <li><a href="{{ shop.url }}/pages/our-story">Our Story</a></li>
+                    <li><a href="{{ shop.url }}/pages/our-story">Sustainability</a></li>
+                    <li><a href="{{ shop.url }}/pages/our-story">Candle Care</a></li>
+                </ul>
+            </div>
+
+            <!-- 4. Gifting -->
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">GIFTING</h4>
+                <ul class="footer-link-list">
+                    <li><a href="{{ shop.url }}/pages/your-story">Your Story</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">Customisation</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">Corporate Gifting</a></li>
+                </ul>
+            </div>
+
+            <!-- 5. Customer Service -->
+            <div class="footer-links-col">
+                <h4 class="footer-col-title">CUSTOMER SERVICE</h4>
+                <ul class="footer-link-list">
+                    <li><a href="{{ shop.url }}/pages/contact">Contact Us</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">Shipping & Returns</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">Terms & Conditions</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">Privacy Policy</a></li>
+                    <li><a href="{{ shop.url }}/pages/contact">FAQ's</a></li>
+                </ul>
+            </div>
         </div>
 
+        <div class="footer-divider-rule"></div>
+
         <div class="footer-bottom-row">
-            <span class="copyright text-muted">© {{ 'now' | date: "%Y" }} SCENTS BY SARA. ALL RIGHTS RESERVED.</span>
-            <div class="payment-icons">
-                <img src="{{ 'payment-icons.png' | asset_url }}" alt="Payment Icons">
+            <div class="footer-brand-wrap">
+                <h2 class="footer-logo-text font-serif">BYSARA</h2>
+                <p class="footer-copyright-text">© {{ 'now' | date: "%Y" }} SCENTS BY SARA. ALL RIGHTS RESERVED</p>
+            </div>
+            <div class="footer-payment-wrap">
+                <img src="{{ 'payment-icons.png' | asset_url }}" alt="Payment Methods" class="payment-methods-img">
             </div>
         </div>
     </div>

@@ -1,0 +1,68 @@
+{
+    "sections": {
+        "main": {
+            "type": "main-page-your-story",
+            "blocks": {
+                "story-1": {
+                    "type": "story",
+                    "settings": {
+                        "badge": "SHE IS GRACE",
+                        "title": "A Moment of Grace",
+                        "text": "The first time I lit She Is Grace, I felt something shift. The scent carried me back to my grandmother's garden in Lagos — warm jasmine and soft earth. I cried, then smiled. It was a memory I didn't know I'd been carrying.",
+                        "author": "AMARA OSEI"
+                    }
+                },
+                "story-2": {
+                    "type": "story",
+                    "settings": {
+                        "badge": "THE LIVED-IN BODY",
+                        "title": "Reclaiming My Body",
+                        "text": "After years of feeling disconnected from myself, the Lived-In Body Collection became part of my morning ritual. Seeing the gold leaf celebrate the curves I once hid changed how I saw my own reflection.",
+                        "author": "CLAIRE DEVEREUX"
+                    }
+                },
+                "story-3": {
+                    "type": "story",
+                    "settings": {
+                        "badge": "SHE IS POWER",
+                        "title": "The Gift That Said Everything",
+                        "text": "I gifted She Is Power to my sister on the day she was promoted. She messaged me an hour later, weeping. She said it smelled like the version of herself she had always been trying to become.",
+                        "author": "NADIA IBRAHIM"
+                    }
+                },
+                "story-4": {
+                    "type": "story",
+                    "settings": {
+                        "badge": "SHE IS STRENGTH",
+                        "title": "Strength in Stillness",
+                        "text": "In the quiet after my surgery, She Is Strength sat on my bedside table. I couldn't explain why it helped, but it did. It reminded me that beauty and healing could exist in the same moment.",
+                        "author": "PRIYA MEHTA"
+                    }
+                }
+            },
+            "block_order": [
+                "story-1",
+                "story-2",
+                "story-3",
+                "story-4"
+            ],
+            "settings": {
+                "hero_title": "YOUR STORY",
+                "hero_text": "Every candle tells a story. These are yours — shared moments of transformation, memory, and quiet power.",
+                "quote_text": "Scents by Sara was built on the stories of real women. We invite you to be part of the narrative.",
+                "grid_title": "YOUR STORIES",
+                "grid_subtitle": "AS TOLD BY OUR COMMUNITY",
+                "banner_eyebrow": "YOUR VOICE MATTERS",
+                "banner_heading": "EVERY SCENT\nHAS A\nSTORY\nWAITING TO BE\nTOLD.",
+                "banner_text": "Your experience with Scents by Sara is uniquely yours. Whether it sparked a memory, marked a milestone, or simply made a quiet morning feel sacred — we want to hear it.",
+                "form_eyebrow": "SHARE WITH US",
+                "form_title": "SUBMIT YOUR STORY",
+                "form_subtitle": "Tell us about your moment. We may feature your story as part of our community pages or in upcoming editorials.",
+                "form_disclaimer": "By submitting, you agree that Scents by Sara may contact you and potentially publish your story across our platforms with the sole exception that we will credit you by name. We will not share your email address."
+            }
+        }
+    },
+    "order": [
+        "main"
+    ]
+}

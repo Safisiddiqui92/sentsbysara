@@ -1,0 +1,139 @@
+<main class="page-wrapper">
+    <div class="container" style="padding-top: 40px;">
+        <div class="breadcrumbs text-micro text-muted">
+            <a href="{{ routes.all_products_collection_url }}" class="text-muted">SHOP</a> / 
+            {% if collection %}
+                <a href="{{ collection.url }}" class="text-muted">{{ collection.title | upcase }}</a> /
+            {% endif %}
+            <span class="text-primary" style="color: var(--color-slate)">{{ product.title | upcase }}</span>
+        </div>
+
+        <div class="product-main grid-cols-2">
+            <!-- LEFT: GALLERY -->
+            <div class="product-gallery">
+                <div class="main-image-wrap">
+                    {% if product.featured_image != blank %}
+                        <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}">
+                    {% else %}
+                        <img src="{{ 'product-1.png' | asset_url }}" alt="She is Lust">
+                    {% endif %}
+                    <button class="wishlist-btn icon-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#A39382" stroke="none">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="thumbnails">
+                    {% for image in product.images %}
+                        <div class="thumb-wrap {% if forloop.first %}active{% endif %}"><img src="{{ image | image_url: width: 150 }}" alt="{{ image.alt | escape }}"></div>
+                    {% else %}
+                        <div class="thumb-wrap active"><img src="{{ 'product-1.png' | asset_url }}"></div>
+                        <div class="thumb-wrap"><img src="{{ 'product-2.png' | asset_url }}"></div>
+                        <div class="thumb-wrap"><img src="{{ 'product-4.png' | asset_url }}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- RIGHT: DETAILS -->
+            <div class="product-details" style="padding-top: 24px;">
+                {% form 'product', product %}
+                <div class="product-header-block mb-8">
+                    <h1 class="font-serif text-h1" style="font-size: 40px; margin-bottom: 8px;">{{ product.title | upcase }}</h1>
+                    <div class="flex-between items-center">
+                        <div class="subtitle text-micro"
+                            style="margin-bottom: 0; letter-spacing: 0.1em; font-weight: 600;">{% if product.metafields.custom.subtitle %}{{ product.metafields.custom.subtitle | upcase }}{% else %}BODY CANDLE{% endif %}
+                        </div>
+                        <span class="price font-sans" style="font-size: 14px;">{{ product.price | money }}</span>
+                    </div>
+                </div>
+
+                {% unless product.has_only_default_variant %}
+                    {% for option in product.options_with_values %}
+                    <div class="selector-group mt-6">
+                        <div class="selector-label text-micro" style="text-transform: uppercase;">{{ option.name }}: {{ option.selected_value }}</div>
+                        <div class="pill-group mt-4">
+                            {% for value in option.values %}
+                            <button type="button" class="pill-btn {% if option.selected_value == value %}selected{% endif %}">{{ value | upcase }}</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endunless %}
+
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+
+                <div class="selector-group mt-6">
+                    <div class="selector-label text-micro">QUANTITY</div>
+                    <div class="add-to-cart-row">
+                        <div class="qty-selector">
+                            <button type="button" class="qty-btn" aria-label="Decrease quantity" onclick="this.nextElementSibling.stepDown()">-</button>
+                            <input type="number" name="quantity" value="1" min="1" class="qty-input" style="width: 40px; text-align: center; border: none; background: transparent;">
+                            <button type="button" class="qty-btn" aria-label="Increase quantity" onclick="this.previousElementSibling.stepUp()">+</button>
+                        </div>
+                        <button type="submit" class="btn-solid btn-add-bag" {% unless product.available %}disabled{% endunless %}>
+                            {% if product.available %}ADD TO BAG - {{ product.price | money }}{% else %}SOLD OUT{% endif %}
+                        </button>
+                    </div>
+                </div>
+                {% endform %}
+
+                <!-- Accordions -->
+                <div class="accordion-wrapper mb-8 mt-12">
+                    <div class="accordion static-block">
+                        <div class="accordion-header">DESCRIPTION</div>
+                        <div class="accordion-body" style="display:block;">
+                            {{ product.description | default: '<p>Shaped by time, celebrating the body through change.</p>' }}
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-header">CRAFT & INTENTION</div>
+                        <div class="accordion-body">
+                            {{ section.settings.craft_text | default: '<p>Hand-poured with intention using vegan soy wax and premium fragrance oils.</p>' }}
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-header">HOW TO USE</div>
+                        <div class="accordion-body">
+                            {{ section.settings.usage_text | default: '<p>Place on a heat-resistant surface. Trim wick to 5mm before lighting.</p>' }}
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-header">DIMENSIONS & INGREDIENTS</div>
+                        <div class="accordion-body">
+                            {{ section.settings.specs_text | default: '<p>Height: 12cm. Ingredients: Soy Wax, Fragrance Oil.</p>' }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "craft_text",
+      "label": "Craft & Intention Text",
+      "default": "<p>Hand-poured with intention using vegan soy wax and premium fragrance oils.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "usage_text",
+      "label": "How to Use Text",
+      "default": "<p>Place on a heat-resistant surface. Trim wick to 5mm before lighting.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "specs_text",
+      "label": "Dimensions & Ingredients Text",
+      "default": "<p>Height: 12cm. Ingredients: Soy Wax, Fragrance Oil.</p>"
+    }
+  ]
+}
+{% endschema %}
