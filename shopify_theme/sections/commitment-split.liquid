@@ -1,0 +1,92 @@
+<section class="section-block commitment-section">
+    <div class="container grid-cols-2">
+        <div class="commitment-image">
+            {% if section.settings.image != blank %}
+                <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.heading | escape }}">
+            {% else %}
+                <img src="{{ 'our-commitment-left.png' | asset_url }}" alt="Matches and candle">
+            {% endif %}
+        </div>
+        <div class="commitment-text">
+            <span class="eyebrow">{{ section.settings.subheading }}</span>
+            <h2 class="font-serif">{{ section.settings.heading | newline_to_br }}</h2>
+
+            <div class="commitment-items">
+                {% for block in section.blocks %}
+                    <div class="commitment-item" {{ block.shopify_attributes }}>
+                        <h3>{{ block.settings.title }}</h3>
+                        <p>{{ block.settings.text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if section.settings.button_label != blank %}
+                <a href="{{ section.settings.button_link }}" class="commitment-link">{{ section.settings.button_label }}</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Commitment Split",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "OUR COMMITMENT"
+    },
+    {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "default": "INTENTIONAL DESIGN IN\nSCENT AND FORM."
+    },
+    {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "READ OUR STORY"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "item",
+        "name": "Commitment Item",
+        "limit": 4,
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "text",
+                "label": "Text"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Commitment Split",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

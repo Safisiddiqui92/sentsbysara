@@ -16,9 +16,137 @@
             "block_order": [
                 "slide-1"
             ]
+        },
+        "featured_collection": {
+            "type": "featured-collection",
+            "settings": {
+                "title": "BEST SELLERS",
+                "limit": 4
+            }
+        },
+        "commitment_split": {
+            "type": "commitment-split",
+            "blocks": {
+                "item-1": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Rooted in Real Stories",
+                        "text": "Scents by Sara is built with its community, not just for it. Each piece carries real stories and shared experiences, turning both gifting and self-use into something deeply personal."
+                    }
+                },
+                "item-2": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Handcrafted & Customisable",
+                        "text": "From form to final detail, each piece is hand-poured in small batches and thoughtfully finished to be intentionally one of a kind."
+                    }
+                },
+                "item-3": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Scent Science",
+                        "text": "Fragrance designed as a tool for daily ritual and to be used with intention. More than decorative, every scent serves a purpose."
+                    }
+                },
+                "item-4": {
+                    "type": "item",
+                    "settings": {
+                        "title": "Sustainable Throughout",
+                        "text": "Every element, from wax to packaging, is consciously chosen to be vegan, cruelty-free and environmentally considered without compromise on quality or design."
+                    }
+                }
+            },
+            "block_order": [
+                "item-1",
+                "item-2",
+                "item-3",
+                "item-4"
+            ],
+            "settings": {
+                "subheading": "OUR COMMITMENT",
+                "heading": "INTENTIONAL DESIGN IN\nSCENT AND FORM.",
+                "button_label": "READ OUR STORY",
+                "button_link": "shopify:\/\/pages\/our-story"
+            }
+        },
+        "collections_grid": {
+            "type": "collections-grid",
+            "blocks": {
+                "col-1": {
+                    "type": "collection",
+                    "settings": {
+                        "title": "THE LIVED-IN BODY COLLECTION",
+                        "text": "Designed to celebrate the body as a holder of memory and confidence. Here, gold leaf is applied with intention to transform scars into something seen and treasured.",
+                        "button_label": "DISCOVER NOW"
+                    }
+                },
+                "col-2": {
+                    "type": "collection",
+                    "settings": {
+                        "title": "THE SCULPTED COLLECTION",
+                        "text": "Celebrating the female form through gold leaf adornment, elevating its natural curves and contours. Honouring every body shape, tone, and texture in all its glory.",
+                        "button_label": "DISCOVER NOW"
+                    }
+                }
+            },
+            "block_order": [
+                "col-1",
+                "col-2"
+            ],
+            "settings": {}
+        },
+        "story_split": {
+            "type": "story-split",
+            "settings": {
+                "subheading": "OUR STORY",
+                "heading": "GROUNDED IN RITUAL.\nEMBODIED IN CONFIDENCE.",
+                "text": "Born in London and raised in Dubai, Scents by Sara is a female-founded premium fragrance brand that brings together embodied confidence, intentional scent and personal ritual, shaped by community and real stories.",
+                "button_label": "READ MORE",
+                "button_link": "shopify:\/\/pages\/our-story"
+            }
+        },
+        "testimonials": {
+            "type": "testimonials",
+            "blocks": {
+                "test-1": {
+                    "type": "testimonial",
+                    "settings": {
+                        "quote": "I knew that the candles looked amazing, but I didn't expect them to smell as amazing too! Scents By Sara really gives the full package. I'm hesitating to light mine because then the magic ends.",
+                        "author": "EUNICE YUMBA"
+                    }
+                },
+                "test-2": {
+                    "type": "testimonial",
+                    "settings": {
+                        "quote": "Absolutely stunning pieces that instantly elevated my living room. The scent throw even when unlit is incredible. A true work of art.",
+                        "author": "SARAH JENNINGS"
+                    }
+                },
+                "test-3": {
+                    "type": "testimonial",
+                    "settings": {
+                        "quote": "The attention to detail is unmatched. I gifted this to my sister and she was brought to tears by the beautiful intention behind the sculpted design.",
+                        "author": "MICHELLE D."
+                    }
+                }
+            },
+            "block_order": [
+                "test-1",
+                "test-2",
+                "test-3"
+            ],
+            "settings": {
+                "title": "CUSTOMER TESTIMONIALS",
+                "show_stars": true
+            }
         }
     },
     "order": [
-        "hero"
+        "hero",
+        "featured_collection",
+        "commitment_split",
+        "collections_grid",
+        "story_split",
+        "testimonials"
     ]
 }

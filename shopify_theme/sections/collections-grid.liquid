@@ -1,0 +1,78 @@
+<section class="section-block collections-section">
+    <div class="container grid-cols-2">
+        {% for block in section.blocks limit: 2 %}
+            {% assign collection = collections[block.settings.collection] %}
+            <div class="collection-card" {{ block.shopify_attributes }}>
+                <div class="collection-image-wrap">
+                    {% if block.settings.image != blank %}
+                        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ collection.title | escape | default: 'Collection Image' }}">
+                    {% elsif collection.image != blank %}
+                        <img src="{{ collection.image | image_url: width: 800 }}" alt="{{ collection.title | escape }}">
+                    {% else %}
+                        {% if forloop.index == 1 %}
+                            <img src="{{ 'custom-collections.png' | asset_url }}" alt="Collection fallback">
+                        {% else %}
+                            <img src="{{ 'gold-collections.png' | asset_url }}" alt="Collection fallback">
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="collection-content">
+                    <h3 class="font-serif">{% if block.settings.title != blank %}{{ block.settings.title }}{% else %}{{ collection.title | default: 'Collection' }}{% endif %}</h3>
+                    <p>{{ block.settings.text }}</p>
+                    <a href="{{ collection.url | default: '#' }}" class="btn-outline">{{ block.settings.button_label }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections Grid",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Block",
+      "settings": [
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Custom Image (Optional)"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Custom Title (Optional)"
+        },
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Description",
+            "default": "Designed to celebrate the body as a holder of memory and confidence."
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "DISCOVER NOW"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections Grid",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}
