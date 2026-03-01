@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Story | Scents by Sara</title>
+    <title>Contact | Scents by Sara</title>
     <link rel="stylesheet" href="https://use.typekit.net/abn0bto.css">
     <link rel="stylesheet" href="css/design-tokens.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="assets/css/your-story.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 
 <body>
@@ -42,14 +42,14 @@
 
             <!-- Right: Icons & Hamburger -->
             <div class="header-right nav-icons">
-                <button aria-label="Account" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Account" class="icon-btn" onclick="window.location.href='contact.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </button>
-                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='shop.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -157,205 +157,74 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="story-hero mt-0">
+        <section class="story-hero story-hero--contact">
             <div class="story-hero-overlay"></div>
             <div class="story-hero-content">
-                <h1 class="font-sans mb-4"
-                    style="font-size: 48px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 400;">YOUR
-                    STORY</h1>
-                <hr style="width: 40px; margin: 0 auto; border: none; border-top: 2px solid white;">
-                <p class="text-body mt-8 mx-auto"
-                    style="font-size: 14px; max-width: 500px; color: rgba(255,255,255,0.9);">Every candle tells a story.
-                    These are yours — shared moments of transformation, memory, and quiet power.</p>
+                <h1 class="font-sans mb-4">CONTACT</h1>
+                <hr>
+                <p class="text-body mt-8 mx-auto">We are here to help with product questions, custom requests, and order support.</p>
             </div>
         </section>
 
-        <!-- INTRO QUOTE -->
-        <section class="intro-quote section-block text-center container" style="max-width: 800px; padding: 60px 24px;">
-            <span class="quote-icon"
-                style="color: #A39382; font-size: 35px; margin-bottom: 24px; display: block;">"</span>
-            <h2 class="font-sans text-md font-weight-normal mb-8 mx-auto" style="line-height: 1.4; color: #3F3229;">
-                Scents by Sara was built on the stories of real women. We invite you to be part of the narrative.</h2>
-            <hr style="width: 60px; margin: 0 auto; border: none; border-top: 1px solid var(--border-heavy);">
-        </section>
+        <section class="contact-section section-block">
+            <div class="container grid-cols-2 gap-8 contact-grid">
+                <aside class="contact-info-panel">
+                    <span class="eyebrow">GET IN TOUCH</span>
+                    <h2 class="font-serif">LET US SUPPORT YOUR RITUAL</h2>
+                    <p>Our team replies within 1-2 business days. For order issues, include your order number for faster help.</p>
+                    <ul class="contact-info-list">
+                        <li>
+                            <h3>Email</h3>
+                            <a href="mailto:hello@scentsbysara.com">hello@scentsbysara.com</a>
+                        </li>
+                        <li>
+                            <h3>WhatsApp</h3>
+                            <a href="tel:+442012345678">+44 20 1234 5678</a>
+                        </li>
+                        <li>
+                            <h3>Studio Hours</h3>
+                            <p>Monday-Friday, 9:00-18:00 GMT</p>
+                        </li>
+                    </ul>
+                </aside>
 
-        <!-- STORIES GRID -->
-        <section class="community-stories container pb-16">
-            <div class="section-header flex-between align-end mb-8">
-                <h2 class="font-sans text-md font-weight-normal">YOUR STORIES</h2>
-                <span class="eyebrow text-muted"
-                    style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;">AS TOLD BY OUR
-                    COMMUNITY</span>
-            </div>
-
-            <div class="grid-cols-2 gap-8 masonry-grid">
-                <!-- Col 1 -->
-                <div class="masonry-col">
-                    <!-- Card 1 -->
-                    <div class="ys-card mb-8">
-                        <div class="ys-img-wrap" style="aspect-ratio: 4/3; position: relative;">
-                            <span class="ys-badge"
-                                style="position: absolute; top: 16px; left: 16px; background: rgba(63, 50, 41, 0.8); color: white; padding: 4px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; z-index: 2;">SHE
-                                IS GRACE</span>
-                            <img src="assets/images/product-2.png" alt="A Moment of Grace"
-                                style="width:100%; height:100%; object-fit:cover;">
+                <div class="contact-form-panel">
+                    <span class="eyebrow">SEND A MESSAGE</span>
+                    <form id="contact-form" class="js-validated-form" data-form-type="contact" novalidate>
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input id="contact-name" name="name" type="text" required minlength="2" maxlength="80" autocomplete="name">
+                            <p class="field-error" data-for="name" aria-live="polite"></p>
                         </div>
-                        <div class="ys-content" style="background: #E8E6E1; padding: 40px;">
-                            <h3 class="font-sans text-md font-weight-normal mb-4" style="font-size: 24px;">A Moment of
-                                Grace</h3>
-                            <p class="text-sm text-muted mb-8" style="line-height: 1.6;">The first time I lit She Is
-                                Grace, I felt something shift. The scent carried me back to my grandmother's garden in
-                                Lagos — warm jasmine and soft earth. I cried, then smiled. It was a memory I didn't know
-                                I'd been carrying.</p>
-                            <span class="ys-author text-micro text-muted uppercase tracking-widest"
-                                style="border-top: 1px solid var(--border-light); padding-top: 16px; display: block; font-size: 10px;">—
-                                AMARA OSEI</span>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input id="contact-email" name="email" type="email" required maxlength="120" autocomplete="email">
+                            <p class="field-error" data-for="email" aria-live="polite"></p>
                         </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="ys-card mb-8">
-                        <div class="ys-img-wrap" style="aspect-ratio: 4/3; position: relative;">
-                            <span class="ys-badge"
-                                style="position: absolute; top: 16px; left: 16px; background: rgba(63, 50, 41, 0.8); color: white; padding: 4px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; z-index: 2;">SHE
-                                IS POWER</span>
-                            <img src="assets/images/product-4.png" alt="The Gift That Said Everything"
-                                style="width:100%; height:100%; object-fit:cover;">
+                        <div class="form-group">
+                            <label for="contact-topic">Topic</label>
+                            <select id="contact-topic" name="topic" required>
+                                <option value="">Select a topic</option>
+                                <option value="order">Order Support</option>
+                                <option value="product">Product Question</option>
+                                <option value="custom">Custom Candle Enquiry</option>
+                                <option value="press">Press / Collaboration</option>
+                            </select>
+                            <p class="field-error" data-for="topic" aria-live="polite"></p>
                         </div>
-                        <div class="ys-content" style="background: #E8E6E1; padding: 40px;">
-                            <h3 class="font-sans text-md font-weight-normal mb-4" style="font-size: 24px;">The Gift That
-                                Said Everything</h3>
-                            <p class="text-sm text-muted mb-8" style="line-height: 1.6;">I gifted She Is Power to my
-                                sister on the day she was promoted. She messaged me an hour later, weeping. She said it
-                                smelled like the version of herself she had always been trying to become.</p>
-                            <span class="ys-author text-micro text-muted uppercase tracking-widest"
-                                style="border-top: 1px solid var(--border-light); padding-top: 16px; display: block; font-size: 10px;">—
-                                NADIA IBRAHIM</span>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" required minlength="20" maxlength="1200"></textarea>
+                            <div class="form-meta">
+                                <span class="char-count" data-counter-for="contact-message">0 / 1200</span>
+                            </div>
+                            <p class="field-error" data-for="message" aria-live="polite"></p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Col 2 -->
-                <div class="masonry-col" style="margin-top: 0px;">
-                    <!-- Card 2 -->
-                    <div class="ys-card mb-8">
-                        <div class="ys-img-wrap" style="aspect-ratio: 4/3; position: relative;">
-                            <span class="ys-badge"
-                                style="position: absolute; top: 16px; left: 16px; background: rgba(63, 50, 41, 0.8); color: white; padding: 4px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; z-index: 2;">THE
-                                LIVED-IN BODY</span>
-                            <img src="assets/images/product-1.png" alt="Reclaiming My Body"
-                                style="width:100%; height:100%; object-fit:cover;">
-                        </div>
-                        <div class="ys-content" style="background: #F6F4EF; padding: 40px;">
-                            <h3 class="font-sans text-md font-weight-normal mb-4" style="font-size: 24px;">Reclaiming My
-                                Body</h3>
-                            <p class="text-sm text-muted mb-8" style="line-height: 1.6;">After years of feeling
-                                disconnected from myself, the Lived-In Body Collection became part of my morning ritual.
-                                Seeing the gold leaf celebrate the curves I once hid changed how I saw my own
-                                reflection.</p>
-                            <span class="ys-author text-micro text-muted uppercase tracking-widest"
-                                style="border-top: 1px solid var(--border-light); padding-top: 16px; display: block; font-size: 10px;">—
-                                CLAIRE DEVEREUX</span>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="ys-card mb-8">
-                        <div class="ys-img-wrap" style="aspect-ratio: 4/3; position: relative;">
-                            <span class="ys-badge"
-                                style="position: absolute; top: 16px; left: 16px; background: rgba(63, 50, 41, 0.8); color: white; padding: 4px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; z-index: 2;">SHE
-                                IS STRENGTH</span>
-                            <img src="assets/images/product-3.png" alt="Strength in Stillness"
-                                style="width:100%; height:100%; object-fit:cover;">
-                        </div>
-                        <div class="ys-content" style="background: #F6F4EF; padding: 40px;">
-                            <h3 class="font-sans text-md font-weight-normal mb-4" style="font-size: 24px;">Strength in
-                                Stillness</h3>
-                            <p class="text-sm text-muted mb-8" style="line-height: 1.6;">In the quiet after my surgery,
-                                She Is Strength sat on my bedside table. I couldn't explain why it helped, but it did.
-                                It reminded me that beauty and healing could exist in the same moment.</p>
-                            <span class="ys-author text-micro text-muted uppercase tracking-widest"
-                                style="border-top: 1px solid var(--border-light); padding-top: 16px; display: block; font-size: 10px;">—
-                                PRIYA MEHTA</span>
-                        </div>
-                    </div>
+                        <button type="submit" class="btn-solid">SUBMIT</button>
+                        <p class="form-status" aria-live="polite"></p>
+                    </form>
                 </div>
             </div>
-        </section>
-
-        <!-- BELIEF BANNER SPLIT -->
-        <section class="split-belief" style="background-color: #EBE8E3; padding: 120px 0;">
-            <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 60px;">
-                <div class="split-left" style="flex: 0 0 auto; max-width: 400px;">
-                    <span class="eyebrow text-muted uppercase"
-                        style="font-size: 10px; letter-spacing: 0.2em; display: block; margin-bottom: 24px;">YOUR
-                        VOICE MATTERS</span>
-                    <h2 class="font-sans font-weight-normal"
-                        style="line-height: 1.2; text-transform: uppercase; font-size: 34px; margin: 0; color: var(--color-mocha);">
-                        EVERY SCENT<br>HAS A
-                        STORY<br>WAITING TO BE<br>TOLD.</h2>
-                </div>
-
-                <div style="width: 1px; height: 100px; background-color: rgba(163, 147, 130, 0.4);"></div>
-
-                <div class="split-right" style="flex: 0 0 auto; max-width: 360px;">
-                    <p class="text-sm text-muted" style="line-height: 1.6; font-size: 13px; margin: 0;">Your experience
-                        with
-                        Scents by Sara is uniquely yours. Whether it sparked a memory, marked a milestone, or simply
-                        made a quiet morning feel sacred — we want to hear it.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SUBMIT FORM -->
-        <section class="story-submit-section section-block container text-center pt-24 pb-24"
-            style="max-width: 800px; padding: 120px 24px;">
-            <span class="eyebrow text-muted uppercase tracking-widest"
-                style="font-size: 10px; letter-spacing: 0.2em;">SHARE WITH US</span>
-            <h2 class="font-serif text-h1 font-weight-normal mt-6 mb-4"
-                style="text-transform: uppercase; font-size: 36px; letter-spacing: 0.05em;">SUBMIT YOUR STORY</h2>
-            <p class="text-sm text-muted mb-12" style="margin-bottom: 48px;">Tell us about your moment. We may feature
-                your story as part of our community pages or in upcoming editorials.</p>
-
-            <form class="ys-form text-left">
-                <div class="grid-cols-2 gap-4 mb-4"
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-                    <div class="form-group">
-                        <label class="ys-label"
-                            style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">YOUR
-                            NAME</label>
-                        <input type="text" placeholder="First & Last Name" class="ys-input form-input"
-                            style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; background: transparent;">
-                    </div>
-                    <div class="form-group">
-                        <label class="ys-label"
-                            style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">EMAIL
-                            ADDRESS</label>
-                        <input type="email" placeholder="your@email.com" class="ys-input form-input"
-                            style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; background: transparent;">
-                    </div>
-                </div>
-                <div class="form-group mb-4" style="margin-bottom: 16px;">
-                    <label class="ys-label"
-                        style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">YOUR
-                        NARRATIVE</label>
-                    <textarea
-                        placeholder="Tell us your story. How did a Scents by Sara candle become part of a moment that mattered to you?"
-                        class="ys-input ys-textarea form-input"
-                        style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; min-height: 200px; resize: none; background: transparent;"></textarea>
-                    <div
-                        style="text-align: right; font-size: 10px; color: #a39382; padding-top: 4px; letter-spacing: 0;">
-                        0 characters</div>
-                </div>
-                <p class="ys-disclaimer text-muted mb-8"
-                    style="font-size: 9px; line-height: 1.4; color: #a39382; margin-bottom: 32px;">By submitting, you
-                    agree that Scents by Sara may publish your story (edited for brevity) across our digital channels.
-                    We will always credit you by name and will never share your email address.</p>
-                <div class="text-center">
-                    <button type="submit" class="btn-hero"
-                        style="font-size:10px; padding:16px 48px; background: var(--color-mocha); color: white; border: none; letter-spacing: 0.1em; width: 250px;">SHARE
-                        WITH US</button>
-                </div>
-            </form>
         </section>
     </main>
 
@@ -371,25 +240,25 @@
                         <button type="submit">SUBSCRIBE</button>
                     </form>
                     <div class="footer-social-group">
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <svg viewBox="0 0 448 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                             </svg>
                         </a>
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <svg viewBox="0 0 512 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.75l-11 71.69h-57.75V501C413.31 482.38 504 379.78 504 256z" />
                             </svg>
                         </a>
-                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                             <svg viewBox="0 0 448 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.32c7.87 33.32 31.27 60.36 64.11 71.22A121.57 121.57 0 0 0 448 102.32v107.59z" />
                             </svg>
                         </a>
-                        <a href="https://pinterest.com" target="_blank" aria-label="Pinterest">
+                        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
                             <svg viewBox="0 0 496 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
@@ -457,7 +326,7 @@
     </footer>
 
     <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay">
+    <div class="mobile-menu-overlay" aria-hidden="true" inert>
         <div class="mobile-menu-content container">
             <button class="icon-btn close-mobile-menu" aria-label="Close Menu">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
@@ -482,6 +351,10 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
 </body>
 
 </html>
+
+
+

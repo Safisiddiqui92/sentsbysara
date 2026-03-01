@@ -106,6 +106,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addBagBtn) {
         addBagBtn.addEventListener('click', () => {
             const originalText = addBagBtn.textContent;
+            const qtyValue = parseInt(qtyInput?.value || '1', 10) || 1;
+            const selectedColor = document.querySelector('.selector-group:first-of-type .selector-label')?.textContent.split(':')[1]?.trim() || 'CARAMEL';
+            const selectedSize = document.querySelectorAll('.selector-group .selector-label')[1]?.textContent.split(':')[1]?.trim() || 'PLUS-SIZE';
+            const selectedScent = document.querySelectorAll('.selector-group .selector-label')[2]?.textContent.split(':')[1]?.trim() || 'VANILLA';
+            const productName = document.querySelector('.product-header-block h1')?.textContent.trim() || 'SHE IS LUST';
+            const mainImgSrc = document.querySelector('.main-image-wrap img')?.getAttribute('src') || 'assets/images/product-1.png';
+            const unitPriceText = document.querySelector('.product-header-block .price')?.textContent || '£20.26';
+            const unitPrice = parseFloat(unitPriceText.replace('£', '')) || 20.26;
+
+            if (window.CartState) {
+                window.CartState.addItem({
+                    id: `${productName.toLowerCase().replace(/\s+/g, '-')}`,
+                    name: productName,
+                    price: unitPrice,
+                    quantity: qtyValue,
+                    color: selectedColor,
+                    size: selectedSize,
+                    scent: selectedScent,
+                    image: mainImgSrc,
+                    url: 'product.html'
+                });
+            }
+
             addBagBtn.textContent = 'ADDED TO BAG';
             addBagBtn.classList.add('success');
 
@@ -113,6 +136,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 addBagBtn.textContent = originalText;
                 addBagBtn.classList.remove('success');
             }, 2000);
+        });
+    }
+
+    /* --- PDP Testimonials Dots --- */
+    const pdpDots = document.querySelectorAll('.testimonials-section .slider-dots .dot');
+    const testimonialText = document.querySelector('.testimonials-section .text-body');
+    const testimonialAuthor = document.querySelector('.testimonials-section .text-micro');
+    const testimonials = [
+        {
+            text: 'I knew the candles looked amazing, but I did not expect them to smell this good. It turns every evening into a ritual.',
+            author: 'EUNICE YUMBA'
+        },
+        {
+            text: 'The scent throw is beautiful even before lighting. It feels like a design object and a wellness tool in one.',
+            author: 'NADIA IBRAHIM'
+        },
+        {
+            text: 'I ordered it as a gift and ended up ordering one for myself. The craftsmanship and fragrance are genuinely premium.',
+            author: 'PRIYA MEHTA'
+        }
+    ];
+
+    if (pdpDots.length && testimonialText && testimonialAuthor) {
+        const setTestimonial = (index) => {
+            const safeIndex = index % testimonials.length;
+            testimonialText.textContent = testimonials[safeIndex].text;
+            testimonialAuthor.textContent = testimonials[safeIndex].author;
+            pdpDots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === safeIndex);
+            });
+        };
+
+        pdpDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => setTestimonial(index));
         });
     }
 });

@@ -6,15 +6,14 @@
 /* --- 1440px (Editorial/Laptop) --- */
 @media (max-width: 1440px) {
     :root {
-        --gutter: 80px;
-        /* Compress edges slightly */
+        --gutter: 48px;
     }
 }
 
 /* --- 1024px (Tablet Landscape) --- */
 @media (max-width: 1024px) {
     :root {
-        --gutter: 48px;
+        --gutter: 32px;
     }
 
     .footer-bottom-row {
@@ -163,7 +162,7 @@
         --text-hero: 40px;
         --text-h1: 32px;
         --text-h2: 24px;
-        --gutter: 16px;
+        --gutter: 12px;
     }
 
     .hero-content .text-hero {

@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtn = document.querySelector('.filter-btn');
     const filterOverlay = document.createElement('div');
     filterOverlay.className = 'filter-overlay';
+    filterOverlay.id = 'shop-filter-panel';
+    filterOverlay.setAttribute('aria-hidden', 'true');
     filterOverlay.innerHTML = `
         <div class="filter-content container">
             <div class="filter-header flex-between mb-8">
@@ -75,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterBtn) {
         filterBtn.addEventListener('click', () => {
             filterOverlay.classList.toggle('active');
+            const isOpen = filterOverlay.classList.contains('active');
+            filterBtn.setAttribute('aria-expanded', String(isOpen));
+            filterOverlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
             document.body.style.overflow = filterOverlay.classList.contains('active') ? 'hidden' : '';
         });
     }
@@ -83,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeFilters) {
         closeFilters.addEventListener('click', () => {
             filterOverlay.classList.remove('active');
+            if (filterBtn) filterBtn.setAttribute('aria-expanded', 'false');
+            filterOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         });
     }
@@ -93,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedShapes = Array.from(filterOverlay.querySelectorAll('.filter-group:first-child input:checked')).map(i => i.value);
             filterProducts(selectedShapes);
             filterOverlay.classList.remove('active');
+            if (filterBtn) filterBtn.setAttribute('aria-expanded', 'false');
+            filterOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         });
     }
@@ -117,17 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- Sort Dropdown Logic --- */
-    const sortDropdown = document.querySelector('.sort-dropdown');
-    if (sortDropdown) {
-        sortDropdown.addEventListener('click', () => {
-            const currentSort = document.getElementById('current-sort');
-            if (currentSort.textContent === 'PRICE (LOW TO HIGH)') {
-                currentSort.textContent = 'PRICE (HIGH TO LOW)';
-                sortProducts('desc');
-            } else {
-                currentSort.textContent = 'PRICE (LOW TO HIGH)';
-                sortProducts('asc');
-            }
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            sortProducts(sortSelect.value);
         });
     }
 
@@ -150,13 +152,35 @@ document.addEventListener('DOMContentLoaded', () => {
     buyBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const card = btn.closest('.shop-card');
-            const name = card.querySelector('.product-name').textContent;
-            const price = card.querySelector('.price-current').textContent;
-            const size = card.querySelector('.size-dropdown span').textContent;
+            const name = card.querySelector('.product-name')?.textContent?.trim() || 'SHE IS TIMELESS';
+            const priceText = card.querySelector('.price-current')?.textContent || '£0';
+            const price = parseFloat(priceText.replace('£', '')) || 0;
+            const size = (card.querySelector('.size-dropdown span')?.textContent || 'SIZE: SLIM')
+                .replace('SIZE:', '')
+                .trim();
+            const image = card.querySelector('.product-image-wrap img')?.getAttribute('src') || 'assets/images/product-1.png';
+            const activeSwatch = card.querySelector('.color-swatches .swatch.active');
+            const color = activeSwatch?.classList.contains('swatch-tan') ? 'CARAMEL'
+                : activeSwatch?.classList.contains('swatch-brown') ? 'EBONY'
+                    : 'IVORY';
+
+            if (window.CartState) {
+                window.CartState.addItem({
+                    id: `${name.toLowerCase().replace(/\s+/g, '-')}-${size.toLowerCase().replace(/\s+/g, '-')}`,
+                    name,
+                    price,
+                    quantity: 1,
+                    color,
+                    size,
+                    scent: 'VANILLA',
+                    image,
+                    url: 'product.html'
+                });
+            }
 
             // Simple visual feedback
             const originalText = btn.textContent;
-            btn.textContent = 'ADDED TO BASKET';
+            btn.textContent = 'ADDED TO BAG';
             btn.style.backgroundColor = 'var(--color-mocha)';
             btn.style.color = 'var(--color-sand)';
 
@@ -165,8 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.style.backgroundColor = '';
                 btn.style.color = '';
             }, 2000);
-
-            console.log(`Add to cart: ${name} (${size}) at ${price}`);
         });
     });
 });

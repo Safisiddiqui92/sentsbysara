@@ -42,14 +42,14 @@
 
             <!-- Right: Icons & Hamburger -->
             <div class="header-right nav-icons">
-                <button aria-label="Account" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Account" class="icon-btn" onclick="window.location.href='contact.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </button>
-                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='shop.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -316,35 +316,41 @@
             <p class="text-sm text-muted mb-12" style="margin-bottom: 48px;">Tell us about your moment. We may feature
                 your story as part of our community pages or in upcoming editorials.</p>
 
-            <form class="ys-form text-left">
+            <form id="story-form" class="ys-form text-left js-validated-form" data-form-type="story" novalidate>
                 <div class="grid-cols-2 gap-4 mb-4"
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                     <div class="form-group">
                         <label class="ys-label"
                             style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">YOUR
                             NAME</label>
-                        <input type="text" placeholder="First & Last Name" class="ys-input form-input"
+                        <input id="story-name" name="name" type="text" placeholder="First & Last Name"
+                            class="ys-input form-input" minlength="2" maxlength="80" required autocomplete="name"
                             style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; background: transparent;">
+                        <p class="field-error" data-for="name" aria-live="polite"></p>
                     </div>
                     <div class="form-group">
                         <label class="ys-label"
                             style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">EMAIL
                             ADDRESS</label>
-                        <input type="email" placeholder="your@email.com" class="ys-input form-input"
+                        <input id="story-email" name="email" type="email" placeholder="your@email.com"
+                            class="ys-input form-input" maxlength="120" required autocomplete="email"
                             style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; background: transparent;">
+                        <p class="field-error" data-for="email" aria-live="polite"></p>
                     </div>
                 </div>
                 <div class="form-group mb-4" style="margin-bottom: 16px;">
                     <label class="ys-label"
                         style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px;">YOUR
                         NARRATIVE</label>
-                    <textarea
+                    <textarea id="story-message" name="message"
                         placeholder="Tell us your story. How did a Scents by Sara candle become part of a moment that mattered to you?"
-                        class="ys-input ys-textarea form-input"
+                        class="ys-input ys-textarea form-input" minlength="40" maxlength="1200" required
                         style="width: 100%; border: 1px solid var(--border-heavy); padding: 16px; min-height: 200px; resize: none; background: transparent;"></textarea>
                     <div
+                        class="char-count" data-counter-for="story-message"
                         style="text-align: right; font-size: 10px; color: #a39382; padding-top: 4px; letter-spacing: 0;">
-                        0 characters</div>
+                        0 / 1200</div>
+                    <p class="field-error" data-for="message" aria-live="polite"></p>
                 </div>
                 <p class="ys-disclaimer text-muted mb-8"
                     style="font-size: 9px; line-height: 1.4; color: #a39382; margin-bottom: 32px;">By submitting, you
@@ -355,6 +361,7 @@
                         style="font-size:10px; padding:16px 48px; background: var(--color-mocha); color: white; border: none; letter-spacing: 0.1em; width: 250px;">SHARE
                         WITH US</button>
                 </div>
+                <p class="form-status" aria-live="polite"></p>
             </form>
         </section>
     </main>
@@ -371,25 +378,25 @@
                         <button type="submit">SUBSCRIBE</button>
                     </form>
                     <div class="footer-social-group">
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <svg viewBox="0 0 448 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                             </svg>
                         </a>
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <svg viewBox="0 0 512 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.75l-11 71.69h-57.75V501C413.31 482.38 504 379.78 504 256z" />
                             </svg>
                         </a>
-                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                             <svg viewBox="0 0 448 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.32c7.87 33.32 31.27 60.36 64.11 71.22A121.57 121.57 0 0 0 448 102.32v107.59z" />
                             </svg>
                         </a>
-                        <a href="https://pinterest.com" target="_blank" aria-label="Pinterest">
+                        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
                             <svg viewBox="0 0 496 512" width="32" height="32">
                                 <path fill="currentColor"
                                     d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
@@ -457,7 +464,7 @@
     </footer>
 
     <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay">
+    <div class="mobile-menu-overlay" aria-hidden="true" inert>
         <div class="mobile-menu-content container">
             <button class="icon-btn close-mobile-menu" aria-label="Close Menu">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
@@ -482,6 +489,9 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
 </body>
 
 </html>
+
+

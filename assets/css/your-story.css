@@ -74,3 +74,29 @@
     outline: none;
     border-color: #3F3229 !important;
 }
+
+.field-error {
+    min-height: 16px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: #8b2e2e;
+}
+
+.char-count {
+    display: inline-block;
+}
+
+.form-status {
+    min-height: 18px;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.form-status.is-success {
+    color: #2d6a4f;
+}
+
+.form-status.is-error {
+    color: #8b2e2e;
+}

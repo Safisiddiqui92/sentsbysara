@@ -31,3 +31,6 @@ yarn-error.log
 *.njsproj
 *.sln
 *.sw?
+
+# Temporarily ignoring shopify_theme dir
+shopify_theme/

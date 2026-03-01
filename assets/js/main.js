@@ -10,14 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- Header Scroll Logic --- */
     const header = document.querySelector('.site-header');
     let lastScrollY = window.scrollY;
-    const stickyThreshold = 150; // Delay before taking over
 
     if (header) {
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
 
             // At the very top
-            if (currentScrollY <= stickyThreshold) {
+            if (currentScrollY <= 0) {
                 header.classList.remove('header-scrolled', 'header-hidden');
             }
             // Scrolling Down -> Hide Menu
@@ -39,31 +38,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.querySelector('.hamburger-btn');
     const mobileMenu = document.querySelector('.mobile-menu-overlay');
     const closeMenuBtn = document.querySelector('.close-mobile-menu');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
 
-    const toggleMenu = (e) => {
-        if (e) e.preventDefault();
-        const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+    const setMenuState = (isOpen) => {
+        if (!hamburgerBtn || !mobileMenu) return;
 
-        if (isExpanded) {
-            // Close
-            hamburgerBtn.setAttribute('aria-expanded', 'false');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scroll
+        hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        mobileMenu.classList.toggle('active', isOpen);
+        mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+        // Keep hidden mobile menu out of focus and pointer interactions
+        if (isOpen) {
+            mobileMenu.removeAttribute('inert');
+            document.body.style.overflow = 'hidden';
         } else {
-            // Open
-            hamburgerBtn.setAttribute('aria-expanded', 'true');
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Lock scroll
+            mobileMenu.setAttribute('inert', '');
+            document.body.style.overflow = '';
         }
     };
 
+    const toggleMenu = (e) => {
+        if (e) e.preventDefault();
+        const isOpen = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+        setMenuState(!isOpen);
+    };
+
     if (hamburgerBtn && mobileMenu) {
+        setMenuState(false);
         hamburgerBtn.addEventListener('click', toggleMenu);
     }
 
     if (closeMenuBtn && mobileMenu) {
         closeMenuBtn.addEventListener('click', toggleMenu);
     }
+
+    if (mobileMenuLinks.length > 0) {
+        mobileMenuLinks.forEach((link) => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+            setMenuState(false);
+        }
+    });
     /* --- Search Toggle Logic --- */
     const searchToggleBtns = document.querySelectorAll('.search-toggle');
     const searchCloseBtn = document.querySelector('.search-close');
@@ -207,5 +226,42 @@ document.addEventListener('DOMContentLoaded', () => {
         // Init
         startAutoSlide();
     }
+
+    /* --- Shared product CTA cart persistence --- */
+    const sharedCartButtons = document.querySelectorAll('.product-card .product-btn, .related-products .btn-shop-now');
+
+    sharedCartButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const card = button.closest('.product-card');
+            if (!card || !window.CartState) return;
+
+            const name = card.querySelector('.product-name')?.textContent?.trim() || 'SCENTS BY SARA CANDLE';
+            const priceText = card.querySelector('.price-current:last-child, .price-current')?.textContent || '£20.26';
+            const price = parseFloat(priceText.replace('£', '')) || 20.26;
+            const scent = card.querySelector('.product-scent, .product-desc')?.textContent?.trim() || 'VANILLA';
+            const image = card.querySelector('.product-image-wrap img')?.getAttribute('src') || 'assets/images/product-1.png';
+
+            window.CartState.addItem({
+                id: name.toLowerCase().replace(/\s+/g, '-'),
+                name,
+                price,
+                quantity: 1,
+                color: 'IVORY',
+                size: 'SLIM',
+                scent,
+                image,
+                url: 'product.html'
+            });
+
+            const originalLabel = button.textContent;
+            button.textContent = 'ADDED TO BAG';
+            setTimeout(() => {
+                button.textContent = originalLabel;
+            }, 1500);
+
+            // Prevent legacy inline handlers from forcing product-only navigation.
+            event.stopPropagation();
+        });
+    });
 
 });

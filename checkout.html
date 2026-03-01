@@ -42,14 +42,14 @@
 
             <!-- Right: Icons & Hamburger -->
             <div class="header-right nav-icons">
-                <button aria-label="Account" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Account" class="icon-btn" onclick="window.location.href='contact.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </button>
-                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='#'">
+                <button aria-label="Wishlist" class="icon-btn" onclick="window.location.href='shop.html'">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -157,10 +157,7 @@
     </header>
 
     <main class="container checkout-container">
-        <!-- 60/40 Split Layout -->
         <div class="checkout-main">
-
-            <!-- LEFT COLUMN: FORMS -->
             <div class="checkout-form-col">
                 <div class="checkout-breadcrumbs">
                     <a href="cart.html">BAG</a> /
@@ -169,158 +166,144 @@
                     <span>PAYMENT</span>
                 </div>
 
-                <div class="checkout-section">
-                    <h2>CONTACT</h2>
-                    <div class="form-group">
-                        <label class="form-label" for="email">EMAIL</label>
-                        <input type="email" id="email" class="form-input" placeholder="your@email.com">
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="news" checked>
-                        <label for="news">Email me with news and offers</label>
-                    </div>
-                </div>
-
-                <div class="checkout-section mt-12">
-                    <h2>SHIPPING ADDRESS</h2>
-
-                    <div class="form-group">
-                        <label class="form-label" for="country">COUNTRY/REGION</label>
-                        <select id="country" class="form-input">
-                            <option>United Kingdom</option>
-                            <option>United States</option>
-                            <option>Europe</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row mt-4">
+                <form id="checkout-form" novalidate>
+                    <div class="checkout-section">
+                        <h2>CONTACT</h2>
                         <div class="form-group">
-                            <label class="form-label" for="firstname">FIRST NAME</label>
-                            <input type="text" id="firstname" class="form-input">
+                            <label class="form-label" for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com"
+                                autocomplete="email" required>
+                            <p class="field-error" data-for="email" aria-live="polite"></p>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="lastname">LAST NAME</label>
-                            <input type="text" id="lastname" class="form-input">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="news" name="news">
+                            <label for="news">Email me with news and offers</label>
                         </div>
                     </div>
 
-                    <div class="form-group mt-4">
-                        <label class="form-label" for="address">ADDRESS</label>
-                        <input type="text" id="address" class="form-input" placeholder="Street address">
-                    </div>
+                    <div class="checkout-section mt-12">
+                        <h2>SHIPPING ADDRESS</h2>
 
-                    <div class="form-row mt-4">
                         <div class="form-group">
-                            <label class="form-label" for="city">CITY</label>
-                            <input type="text" id="city" class="form-input">
+                            <label class="form-label" for="country">COUNTRY/REGION</label>
+                            <select id="country" name="country" class="form-input" required>
+                                <option value="">Select country</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States">United States</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                            </select>
+                            <p class="field-error" data-for="country" aria-live="polite"></p>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="postcode">POSTCODE</label>
-                            <input type="text" id="postcode" class="form-input">
-                        </div>
-                    </div>
 
-                    <div class="checkbox-group mt-6">
-                        <input type="checkbox" id="save-info">
-                        <label for="save-info">Save this information for next time</label>
-                    </div>
-                </div>
-
-                <div class="checkout-section mt-12">
-                    <h2>PAYMENT</h2>
-                    <p class="text-sm text-muted mb-6">All transactions are secure and encrypted</p>
-
-                    <div class="payment-box">
-                        <div class="form-group">
-                            <label class="form-label" for="cardnumber">CARD NUMBER</label>
-                            <input type="text" id="cardnumber" class="form-input bg-white"
-                                placeholder="1234 5678 9012 3456" style="background:#fff;">
-                        </div>
                         <div class="form-row mt-4">
                             <div class="form-group">
-                                <label class="form-label" for="expiry">EXPIRY DATE</label>
-                                <input type="text" id="expiry" class="form-input" placeholder="MM / YY"
-                                    style="background:#fff;">
+                                <label class="form-label" for="firstname">FIRST NAME</label>
+                                <input type="text" id="firstname" name="firstname" class="form-input" autocomplete="given-name" required>
+                                <p class="field-error" data-for="firstname" aria-live="polite"></p>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="cvc">SECURITY CODE</label>
-                                <input type="text" id="cvc" class="form-input" placeholder="CVC"
-                                    style="background:#fff;">
+                                <label class="form-label" for="lastname">LAST NAME</label>
+                                <input type="text" id="lastname" name="lastname" class="form-input" autocomplete="family-name" required>
+                                <p class="field-error" data-for="lastname" aria-live="polite"></p>
                             </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <label class="form-label" for="address">ADDRESS</label>
+                            <input type="text" id="address" name="address" class="form-input" placeholder="Street address" autocomplete="street-address" required>
+                            <p class="field-error" data-for="address" aria-live="polite"></p>
+                        </div>
+
+                        <div class="form-row mt-4">
+                            <div class="form-group">
+                                <label class="form-label" for="city">CITY</label>
+                                <input type="text" id="city" name="city" class="form-input" autocomplete="address-level2" required>
+                                <p class="field-error" data-for="city" aria-live="polite"></p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="postcode">POSTCODE</label>
+                                <input type="text" id="postcode" name="postcode" class="form-input" autocomplete="postal-code" required>
+                                <p class="field-error" data-for="postcode" aria-live="polite"></p>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-group mt-6">
+                            <input type="checkbox" id="save-info" name="save-info">
+                            <label for="save-info">Save this information for next time</label>
                         </div>
                     </div>
 
-                    <button class="btn-solid mt-4 w-full" style="width: 100%;">COMPLETE ORDER</button>
-                    <p class="text-center text-sm text-muted mt-4" style="font-size:10px;">By completing your purchase,
-                        you agree to our Terms of Service and Privacy Policy</p>
-                </div>
+                    <div class="checkout-section mt-12">
+                        <h2>PAYMENT</h2>
+                        <p class="text-sm text-muted mb-6">All transactions are secure and encrypted</p>
+
+                        <div class="payment-box">
+                            <div class="form-group">
+                                <label class="form-label" for="cardnumber">CARD NUMBER</label>
+                                <input type="text" id="cardnumber" name="cardnumber" class="form-input bg-white"
+                                    placeholder="1234 5678 9012 3456" autocomplete="cc-number" inputmode="numeric"
+                                    maxlength="19" required>
+                                <p class="field-error" data-for="cardnumber" aria-live="polite"></p>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="expiry">EXPIRY DATE</label>
+                                    <input type="text" id="expiry" name="expiry" class="form-input" placeholder="MM / YY"
+                                        autocomplete="cc-exp" inputmode="numeric" maxlength="7" required>
+                                    <p class="field-error" data-for="expiry" aria-live="polite"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cvc">SECURITY CODE</label>
+                                    <input type="text" id="cvc" name="cvc" class="form-input" placeholder="CVC"
+                                        autocomplete="cc-csc" inputmode="numeric" maxlength="4" required>
+                                    <p class="field-error" data-for="cvc" aria-live="polite"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-solid mt-4 w-full" style="width: 100%;">COMPLETE ORDER</button>
+                        <p id="checkout-form-status" class="form-status" aria-live="polite"></p>
+                        <p class="text-center text-sm text-muted mt-4" style="font-size:10px;">By completing your purchase,
+                            you agree to our Terms of Service and Privacy Policy</p>
+                    </div>
+                </form>
             </div>
 
-            <!-- RIGHT COLUMN: ORDER SUMMARY -->
-            <div class="order-summary-col">
+            <aside class="order-summary-col">
                 <h2 class="font-sans">ORDER SUMMARY</h2>
 
-                <div class="summary-items">
-                    <div class="summary-item">
-                        <div class="summary-product">
-                            <div class="summary-img-wrap">
-                                <span class="qty-badge">2</span>
-                                <img src="assets/images/product-1.png" alt="She Is Lust">
-                            </div>
-                            <div class="summary-details">
-                                <h4 class="font-sans">SHE IS LUST</h4>
-                                <p>CARAMEL · PLUS SIZE</p>
-                                <span class="summary-price mt-2 block font-sans">£40.52</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="summary-item">
-                        <div class="summary-product">
-                            <div class="summary-img-wrap">
-                                <span class="qty-badge">1</span>
-                                <img src="assets/images/product-3.png" alt="She Is Grace">
-                            </div>
-                            <div class="summary-details">
-                                <h4 class="font-sans">SHE IS GRACE</h4>
-                                <p>IVORY · CURVY</p>
-                                <span class="summary-price mt-2 block font-sans">£20.26</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="checkout-summary-items" class="summary-items"></div>
+                <p id="checkout-summary-empty" class="text-sm text-muted">Your bag is empty. Add items before checkout.</p>
 
                 <div class="summary-totals">
                     <div class="totals-row">
                         <span class="text-muted">Subtotal</span>
-                        <span class="font-sans">£60.78</span>
+                        <span id="checkout-subtotal" class="font-sans">£0.00</span>
                     </div>
                     <div class="totals-row">
                         <span class="text-muted">Shipping</span>
-                        <span class="font-sans">£5.00</span>
+                        <span id="checkout-shipping" class="font-sans">£0.00</span>
                     </div>
                     <div class="totals-row">
                         <span class="text-muted">Tax (VAT)</span>
-                        <span class="font-sans">£12.16</span>
+                        <span id="checkout-tax" class="font-sans">£0.00</span>
                     </div>
 
                     <div class="totals-row grand-total">
                         <span class="font-sans">TOTAL</span>
-                        <span class="font-sans" style="font-size: 24px;">£77.94</span>
+                        <span id="checkout-total" class="font-sans" style="font-size: 24px;">£0.00</span>
                     </div>
                 </div>
 
                 <div class="summary-perks">
                     <div class="perk-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
                         <span>Secure checkout</span>
                     </div>
                     <div class="perk-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="1" y="3" width="15" height="13"></rect>
                             <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
                             <circle cx="5.5" cy="18.5" r="2.5"></circle>
@@ -329,110 +312,23 @@
                         <span>Free shipping over £50</span>
                     </div>
                 </div>
-            </div>
-
+            </aside>
         </div>
     </main>
 
-    <!-- SITE FOOTER -->
-    <footer class="site-footer bg-secondary">
-        <div class="container">
-            <div class="footer-main-grid">
-                <!-- 1. Newsletter Column -->
-                <div class="footer-newsletter-col">
-                    <h3 class="newsletter-heading font-serif">JOIN OUR NEWSLETTER</h3>
-                    <form class="newsletter-form-stacked">
-                        <input type="email" placeholder="YOUR EMAIL" required>
-                        <button type="submit">SUBSCRIBE</button>
-                    </form>
-                    <div class="footer-social-group">
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                            <svg viewBox="0 0 448 512" width="32" height="32">
-                                <path fill="currentColor"
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg>
-                        </a>
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                            <svg viewBox="0 0 512 512" width="32" height="32">
-                                <path fill="currentColor"
-                                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.75l-11 71.69h-57.75V501C413.31 482.38 504 379.78 504 256z" />
-                            </svg>
-                        </a>
-                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
-                            <svg viewBox="0 0 448 512" width="32" height="32">
-                                <path fill="currentColor"
-                                    d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.32c7.87 33.32 31.27 60.36 64.11 71.22A121.57 121.57 0 0 0 448 102.32v107.59z" />
-                            </svg>
-                        </a>
-                        <a href="https://pinterest.com" target="_blank" aria-label="Pinterest">
-                            <svg viewBox="0 0 496 512" width="32" height="32">
-                                <path fill="currentColor"
-                                    d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. Shop All -->
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">SHOP ALL</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="shop.html">Slim Body Candles</a></li>
-                        <li><a href="shop.html">Curvy Body Candles</a></li>
-                        <li><a href="shop.html">Plus Size Body Candles</a></li>
-                        <li><a href="shop.html">Custom Body Candles</a></li>
-                    </ul>
-                </div>
-
-                <!-- 3. About Us -->
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">ABOUT US</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="our-story.html">Our Story</a></li>
-                        <li><a href="our-story.html">Sustainability</a></li>
-                        <li><a href="our-story.html">Candle Care</a></li>
-                    </ul>
-                </div>
-
-                <!-- 4. Gifting -->
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">GIFTING</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="your-story.html">Your Story</a></li>
-                        <li><a href="contact.html">Customisation</a></li>
-                        <li><a href="contact.html">Corporate Gifting</a></li>
-                    </ul>
-                </div>
-
-                <!-- 5. Customer Service -->
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">CUSTOMER SERVICE</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="contact.html">Shipping & Returns</a></li>
-                        <li><a href="contact.html">Terms & Conditions</a></li>
-                        <li><a href="contact.html">Privacy Policy</a></li>
-                        <li><a href="contact.html">FAQ's</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-divider-rule"></div>
-
-            <div class="footer-bottom-row">
-                <div class="footer-brand-wrap">
-                    <h2 class="footer-logo-text font-serif">BYSARA</h2>
-                    <p class="footer-copyright-text">© 2026 SCENTS BY SARA. ALL RIGHTS RESERVED</p>
-                </div>
-                <div class="footer-payment-wrap">
-                    <img src="assets/images/payment-icons.png" alt="Payment Methods" class="payment-methods-img">
-                </div>
+    <footer class="checkout-footer-lite">
+        <div class="container checkout-footer-inner">
+            <p>Secure checkout powered by Scents by Sara</p>
+            <div class="checkout-footer-links">
+                <a href="contact.html">Support</a>
+                <a href="contact.html">Privacy</a>
+                <a href="contact.html">Terms</a>
             </div>
         </div>
     </footer>
 
     <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu-overlay">
+    <div class="mobile-menu-overlay" aria-hidden="true" inert>
         <div class="mobile-menu-content container">
             <button class="icon-btn close-mobile-menu" aria-label="Close Menu">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
@@ -456,7 +352,15 @@
     </div>
 
     <!-- Scripts -->
+    <script src="assets/js/cart-state.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/checkout.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
