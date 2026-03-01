@@ -39,8 +39,8 @@
     --announcement-height: 38px;
     --section-max: 1920px;
     /* Section row baseline width */
-    --container-max: 1800px;
-    /* Default content width inside section row */
+    --container-max: 1920px;
+    /* Default content width inside boxed container */
     --container-editorial: 800px;
     /* Narrow editorial blocks */
     --gutter: 60px;

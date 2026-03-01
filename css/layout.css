@@ -123,13 +123,10 @@ h3,
 }
 
 .section-row,
-.announcement-bar,
-.site-header,
 .page-wrapper>section,
 .page-wrapper>.container,
 main>section,
-main>.container,
-.site-footer {
+main>.container {
     width: 100%;
     max-width: var(--section-max);
     margin-left: auto;
@@ -138,10 +135,18 @@ main>.container,
     padding-right: var(--gutter);
 }
 
-.section-row .container,
-.announcement-bar .container,
-.site-header .container,
-.site-footer .container {
+.section-row .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.announcement-bar,
+.site-header,
+.site-footer {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
     padding-right: 0;
 }

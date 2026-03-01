@@ -118,17 +118,20 @@
     height: 44px;
 }
 
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
 
 /* --- 2. HEADER & NAVIGATION (Height strictly 132px) --- */
 .announcement-bar {
     background-color: var(--color-mocha);
     color: var(--color-sand);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: var(--announcement-height);
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -138,17 +141,28 @@
     z-index: 1001;
 }
 
+.announcement-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 var(--gutter);
+}
+
 .announcement-copy {
     display: inline-block;
+    text-align: center;
 }
 
 .announcement-currency {
     position: absolute;
-    right: 24px;
+    right: var(--gutter);
     top: 50%;
     transform: translateY(-50%);
-    font-size: 13px;
-    line-height: 1;
+    width: 16px;
+    height: 16px;
+    line-height: 0;
 }
 
 /* --- SEARCH OVERLAY --- */
@@ -232,6 +246,7 @@
 }
 
 .logo-text {
+    font-family: var(--font-serif);
     font-size: 32px;
     letter-spacing: 0.05em;
     color: var(--color-slate);
@@ -239,6 +254,7 @@
 
 .logo-mobile {
     display: none;
+    font-family: var(--font-serif);
     font-size: 28px;
     letter-spacing: 0.1em;
     color: var(--color-slate);
@@ -259,6 +275,7 @@
 
 .nav-links>a,
 .nav-links>.nav-item>a {
+    font-family: var(--font-sans);
     text-transform: uppercase;
     font-size: var(--text-micro);
     letter-spacing: 0.1em;
@@ -366,9 +383,9 @@
 }
 
 .home-page .site-header {
-    background-color: rgba(45, 43, 39, 0.62);
-    border-bottom-color: rgba(249, 246, 242, 0.24);
-    backdrop-filter: blur(4px);
+    background-color: var(--bg-primary);
+    border-bottom-color: rgba(206, 197, 184, 0.4);
+    backdrop-filter: none;
 }
 
 .home-page .logo-text,
@@ -376,7 +393,7 @@
 .home-page .nav-links>a,
 .home-page .nav-links>.nav-item>a,
 .home-page .icon-btn {
-    color: var(--color-sand);
+    color: var(--color-slate);
 }
 
 .home-page .search-overlay {
@@ -1006,9 +1023,17 @@
     margin-top: 56px;
 }
 
-.footer-social-group img {
+.footer-social-group a {
+    width: 38px;
     height: 38px;
-    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social-group img {
+    height: 24px;
+    width: 24px;
     filter: brightness(0) saturate(100%) invert(18%) sepia(13%) saturate(1000%) hue-rotate(345deg) brightness(95%) contrast(90%);
     /* Matches #3F3229 roughly */
 }
