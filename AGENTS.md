@@ -1,13 +1,20 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository contains a static storefront and a Shopify theme variant.
+This repository contains a static storefront.
 - Root HTML pages: `index.html`, `shop.html`, `product.html`, `cart.html`, `checkout.html`, `contact.html`, `our-story.html`, `your-story.html`.
 - Shared styling system: `css/design-tokens.css`, `css/layout.css`, `css/components.css`, `css/responsive.css`.
 - Page behavior scripts: `assets/js/` (for example `main.js`, `shop.js`, `product.js`, `cart-state.js`).
 - Media assets: `assets/images/`, `assets/icons/`, `assets/fonts/`.
-- Shopify implementation: `shopify_theme/` (`layout/`, `sections/`, `templates/`, `assets/`).
 - QA evidence and audits: `docs/qa/`; planning/review docs: `docs/review/`, `docs/task/`.
+- Visual references: `references/`, organized by page and section assets used for matching.
+
+## Current Status & Scope Rules
+- `index.html` (homepage) is the approved baseline and is fully responsive.
+- Do not change homepage HTML/CSS unless explicitly requested.
+- Other pages currently contain known layout/consistency issues and should be fixed.
+- Reuse homepage design patterns (spacing, typography, header/footer behavior, components, tokens) when updating other pages.
+- For page fixes, use reference screenshots from `references/<page-name>/` and match section-by-section.
 
 ## Build, Test, and Development Commands
 No build step is required for static pages.
@@ -32,4 +39,3 @@ No build step is required for static pages.
 - Follow Conventional Commit prefixes used in history: `feat:`, `fix:`, `docs:`, `test(qa):`, `chore:`.
 - Keep commits scoped by page or feature area (for example header, cart state, checkout validation).
 - PRs should include: concise summary, affected routes/files, linked task/issue, and before/after screenshots for desktop + mobile.
-- Call out any `shopify_theme/` sync requirements when static and Liquid versions diverge.
