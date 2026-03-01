@@ -132,7 +132,7 @@
     height: var(--announcement-height);
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 500;
@@ -147,7 +147,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 0 var(--gutter);
+    padding: 0;
 }
 
 .announcement-copy {
@@ -157,12 +157,7 @@
 
 .announcement-currency {
     position: absolute;
-    right: var(--gutter);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    line-height: 0;
+    right: 0;
 }
 
 /* --- SEARCH OVERLAY --- */
@@ -170,12 +165,14 @@
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
     width: 100%;
+    max-width: 1920px;
     height: 80px;
     background-color: var(--bg-primary);
     border-bottom: 1px solid var(--border-light);
     border-top: 1px solid var(--border-light);
+    transform: translateX(-50%);
     z-index: 1000;
 }
 
@@ -205,7 +202,6 @@
     background-color: var(--bg-primary);
     position: sticky;
     top: 0;
-    height: 94px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -243,6 +239,7 @@
 
 .header-center {
     text-align: center;
+    padding: 20px 0 14px 0;
 }
 
 .logo-text {
@@ -264,7 +261,7 @@
     display: flex;
     justify-content: center;
     margin-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
 }
 
 .nav-links {
@@ -277,7 +274,7 @@
 .nav-links>.nav-item>a {
     font-family: var(--font-sans);
     text-transform: uppercase;
-    font-size: var(--text-micro);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     color: var(--color-slate);
 }
@@ -293,14 +290,15 @@
 .mega-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
     width: 100%;
+    max-width: 1800px;
     background-color: var(--bg-primary);
     border-top: 1px solid var(--border-light);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
+    transform: translate(-50%, 10px);
     transition: all 0.3s ease;
     z-index: 999;
 }
@@ -308,11 +306,11 @@
 .has-mega-menu:hover .mega-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
 }
 
 .mega-menu-container {
-    max-width: var(--container-max);
+    max-width: 100%;
     margin: 0 auto;
     padding: 64px var(--gutter);
     display: grid;
@@ -593,21 +591,46 @@
     text-align: left;
 }
 
+.best-sellers .product-info-stacked {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "name price"
+        "scent scent";
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: start;
+}
+
+.best-sellers .product-name {
+    grid-area: name;
+}
+
+.best-sellers .product-scent {
+    grid-area: scent;
+}
+
+.best-sellers .product-price {
+    grid-area: price;
+    margin-top: 0;
+    justify-self: end;
+    align-self: start;
+}
+
 .product-name {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-mocha);
+    font-family: var(--font-serif);
+    font-size: var(--text-body-large);
+    color: var(--color-slate);
     text-transform: uppercase;
 }
 
 .product-scent {
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: var(--text-small);
     letter-spacing: 0.05em;
-    color: var(--color-taupe);
-    text-transform: uppercase;
+    color: var(--color-mocha);
+    text-transform: capitalize;
+    font-weight: 300;
 }
 
 .product-price {
@@ -615,22 +638,22 @@
 }
 
 .price-current {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--color-mocha);
+    font-size: var(--text-body-large);
+    font-weight: 300;
+    color: var(--color-slate);
 }
 
 .product-btn {
     width: 100%;
-    font-size: 11px;
+    font-size: var(--text-small);
     padding: 14px 0;
     border: 1px solid var(--color-slate);
     background: transparent;
-    color: var(--color-mocha);
+    color: var(--color-slate);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     transition: all 0.3s;
-    font-weight: 700;
+    font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;

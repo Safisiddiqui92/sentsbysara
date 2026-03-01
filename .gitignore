@@ -34,3 +34,9 @@ yarn-error.log
 
 # Temporarily ignoring shopify_theme dir
 shopify_theme/
+
+# QA Docs
+docs/qa/*
+
+# References
+references/

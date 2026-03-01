@@ -55,12 +55,12 @@
     --font-sans: "Suisse Int'l", sans-serif;
 
     --text-hero: 56px;
-    --text-h1: 48px;
-    --text-h2: 32px;
-    --text-h3: 18px;
-    --text-body-large: 18px;
+    --text-h1: 49px;
+    --text-h2: 39px;
+    --text-h3: 31px;
+    --text-body-large: 20px;
     --text-body: 16px;
-    --text-small: 14px;
+    --text-small: 13px;
     --text-micro: 11px;
 
     /* 5. Z-Index Tokens */

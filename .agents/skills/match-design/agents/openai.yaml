@@ -1,0 +1,4 @@
+interface:
+  display_name: "Match Design"
+  short_description: "Pixel-perfect screenshot-to-web prototype skill"
+  default_prompt: "Convert the provided screenshot or wireframe into a pixel-accurate HTML/CSS/JS prototype, then run a point-by-point self-review and list any visual deviations before presenting."
