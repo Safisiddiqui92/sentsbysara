@@ -39,22 +39,90 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.querySelector('.mobile-menu-overlay');
     const closeMenuBtn = document.querySelector('.close-mobile-menu');
     const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
+    const MENU_CLOSE_DURATION_MS = 450;
+    let closeMenuTimeoutId = null;
+    let closeTransitionHandler = null;
 
-    const setMenuState = (isOpen) => {
+    const clearCloseAnimation = () => {
+        if (!mobileMenu) return;
+
+        if (closeMenuTimeoutId) {
+            window.clearTimeout(closeMenuTimeoutId);
+            closeMenuTimeoutId = null;
+        }
+
+        if (closeTransitionHandler) {
+            mobileMenu.removeEventListener('transitionend', closeTransitionHandler);
+            closeTransitionHandler = null;
+        }
+    };
+
+    const applyClosedState = () => {
         if (!hamburgerBtn || !mobileMenu) return;
 
-        hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        mobileMenu.classList.toggle('active', isOpen);
-        mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('active', 'closing');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.setAttribute('inert', '');
+        document.body.style.overflow = '';
+    };
 
-        // Keep hidden mobile menu out of focus and pointer interactions
-        if (isOpen) {
-            mobileMenu.removeAttribute('inert');
-            document.body.style.overflow = 'hidden';
-        } else {
-            mobileMenu.setAttribute('inert', '');
-            document.body.style.overflow = '';
+    const openMenu = () => {
+        if (!hamburgerBtn || !mobileMenu) return;
+        clearCloseAnimation();
+
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        mobileMenu.classList.remove('closing');
+        mobileMenu.classList.add('active');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        mobileMenu.removeAttribute('inert');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = (animate = true) => {
+        if (!hamburgerBtn || !mobileMenu) return;
+        clearCloseAnimation();
+
+        if (!animate) {
+            applyClosedState();
+            return;
         }
+
+        const isActive = mobileMenu.classList.contains('active');
+        const isClosing = mobileMenu.classList.contains('closing');
+
+        if (!isActive && !isClosing) {
+            applyClosedState();
+            return;
+        }
+
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('active');
+        mobileMenu.classList.add('closing');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        mobileMenu.removeAttribute('inert');
+        document.body.style.overflow = '';
+
+        closeTransitionHandler = (event) => {
+            if (event.target !== mobileMenu || event.propertyName !== 'right') return;
+            clearCloseAnimation();
+            applyClosedState();
+        };
+
+        mobileMenu.addEventListener('transitionend', closeTransitionHandler);
+        closeMenuTimeoutId = window.setTimeout(() => {
+            clearCloseAnimation();
+            applyClosedState();
+        }, MENU_CLOSE_DURATION_MS);
+    };
+
+    const setMenuState = (isOpen, options = {}) => {
+        if (isOpen) {
+            openMenu();
+            return;
+        }
+
+        closeMenu(options.animateClose ?? true);
     };
 
     const toggleMenu = (e) => {
@@ -64,12 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (hamburgerBtn && mobileMenu) {
-        setMenuState(false);
+        setMenuState(false, { animateClose: false });
         hamburgerBtn.addEventListener('click', toggleMenu);
     }
 
     if (closeMenuBtn && mobileMenu) {
-        closeMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            setMenuState(false);
+        });
     }
 
     if (mobileMenuLinks.length > 0) {
