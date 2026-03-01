@@ -1,10 +1,17 @@
 # Pixel Analysis & Design Architecture Report
 
+## Superseding Directive Notice
+The layout directives below supersede any older conflicting values in prior docs.
+
 ## 1. Global Viewport & Layout
-- **Viewport Assumption:** Designed for 1920px (Desktop), 1440px (Editorial/Laptop), 1024px (Tablet), 768px (Mobile), 375px (Small Mobile).
-- **Section Max Width:** 1920px (Edge-to-edge full width containers).
-- **Inner Content Max Width:** 1720px (Content Area).
-- **Left/Right Gutter:** 100px explicit spacing.
+- **Reference Baseline:** `references/sections/` screenshots are authored at `1920px` desktop and are the primary source of truth.
+- **Viewport Assumption:** 1920px (Primary Desktop), 1440px (Desktop/Laptop adaptation), 1024px (Tablet), 768px (Mobile), 375px (Small Mobile).
+- **Section Model:** Section-based rows.
+- **Section Width Contract:** Each section supports `width: 100%` with a `1920px` design baseline.
+- **Default Container Width:** `1800px` content area.
+- **Section Side Margins at 1920:** `60px` left and `60px` right.
+- **Boxed Layout Rule:** Viewports above `1920px` remain centered and boxed.
+- **Container Full Variant:** `.container-full` is `100%` width with no side margins.
 - **Vertical Rhythm:** Maintained via strict 8pt modular scale.
 
 ## 2. Header Dimensions
@@ -45,6 +52,6 @@ As requested, the CSS architecture will be modularized into the exact requested 
 - `/v2/css/design-tokens.css` (Variables, Colors, Fonts, Roots)
 - `/v2/css/layout.css` (Containers, Grids, Header/Footer wrappers)
 - `/v2/css/components.css` (Hero, Cards, Buttons, Inputs, Sliders)
-- `/v2/css/responsive.css` (Media Queries strictly at 1440, 1024, 768, 375)
+- `/v2/css/responsive.css` (Media queries anchored from 1920 baseline: 1920, 1440, 1024, 768, 375)
 
 *Assumptions:* The existing `assets/css` directory will be deprecated in favor of this new `/css/` root as mandated inside the `/v2/` directory to satisfy Phase 2 architectural constraints. We will refactor HTML files to respect these modular links.

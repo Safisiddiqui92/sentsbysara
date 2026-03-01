@@ -2,6 +2,9 @@
 
 This document serves as the absolute source of truth and architectural brain for the Scents by Sara clean frontend rebuild (V2).
 
+## Superseding Directive Notice
+The layout and breakpoint directives in this file are superseded by the `1920px` desktop contract below. If any older guidance conflicts, follow this contract.
+
 ## 1. Project Architecture Overview
 The frontend is structured as a static HTML/CSS/JS application, strictly built to emulate a premium, luxury editorial ecommerce experience. No heavy frontend frameworks (React/Vue) are permitted to maintain raw load speed and exact DOM control, reflecting high-end Shopify theme standards.
 
@@ -18,7 +21,13 @@ The `v2/` directory is isolated to guarantee a clean build state:
 Everything scales from the `brand-guideline.png` palette:
 - **Brand Colors:** Strict usage of `#F9F6F2`, `#E7E3DC`, `#CEC5B8`, `#A39382`, `#3F3229`, `#2D2B27` mapping to CSS Variables. No pure blacks/whites.
 - **Typography:** `RL Limo` (Primary/Display) and `Suisse Int'l` (Body/UI).
-- **Layout:** Absolute `.container` bounding at `1440px` to `1720px`. Gutter strictly `100px` on desktop.
+- **Layout Contract (Superseding):**
+  - Desktop reference breakpoint is `1920px`.
+  - Layout is section-based (row model).
+  - Section baseline width is `1920px` while sections still support `width: 100%`.
+  - Default `.container` width is `1800px` (equivalent to `60px` left/right spacing within a 1920 section).
+  - `container-full` is `100%` width with no side margins.
+  - For viewports above `1920px`, layout remains boxed and centered.
 - **Micro-Aesthetics:** `0px` border-radius globally.
 
 ## 4. Page-by-Page Execution Plan
@@ -36,7 +45,7 @@ Implementation strictly follows this chronological path:
 
 ## 6. QA 2–3 Pass Review Rule
 No page advances without clearing:
-- **Pass 1:** Literal Screenshot Audit (1440px desktop overlay).
+- **Pass 1:** Literal Screenshot Audit (1920px desktop overlay against `references/sections`).
 - **Pass 2:** Responsive Integrity (Mobile/Tablet stacking check without reference assets if missing, utilizing system logic).
 - **Pass 3:** Code Disciplinary (Review CSS tokens, remove magic variables, verify font weight rendering).
 
@@ -44,10 +53,12 @@ No page advances without clearing:
 Developers must declare **"Page Completed — Pixel Perfect Matched"** and include visual proof/artifacts before advancing to the next file in the execution plan. 
 
 ## 8. Responsive Testing Breakpoints
-- **1440px:** Core desktop layout target.
+- **1920px:** Primary desktop design target (authoritative reference).
+- **1440px:** Secondary desktop/laptop adaptation derived from 1920 baseline.
 - **1024px:** Tablet Landscape (Nav collapses to hamburger).
 - **768px:** Tablet Portrait (Grids fracture to fewer columns).
 - **375px:** Minimum Mobile Target (Touch constraints, 1-col strict stacking).
+- **>1920px:** Boxed centered layout behavior.
 
 ## 9. Header Scroll Logic Rule
 The header must hide immediately on any downward scroll distance (`translateY(-100%)`) to favor content visibility, and reappear instantly pinned to the top on any upward scroll vector. Maximum height is `130px`.
