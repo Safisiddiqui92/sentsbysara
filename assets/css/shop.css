@@ -329,3 +329,59 @@
         position: static;
     }
 }
+
+@media (max-width: 1024px) {
+    main.page-wrapper>.container {
+        padding-top: 40px !important;
+        padding-bottom: 72px !important;
+    }
+
+    .shop-hero {
+        margin-bottom: 40px;
+    }
+
+    .shop-hero .text-h1 {
+        font-size: 38px;
+        margin-bottom: 16px;
+    }
+
+    .filter-toolbar {
+        margin-bottom: 40px;
+        gap: 14px;
+    }
+
+    .sort-dropdown {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-hero .text-h1 {
+        font-size: 32px;
+    }
+
+    .filter-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sort-dropdown {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .sort-select {
+        width: 100%;
+    }
+
+    .shop-rail-copy h3 {
+        font-size: 24px;
+    }
+}

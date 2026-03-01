@@ -496,3 +496,138 @@
         display: none;
     }
 }
+
+@media (max-width: 1200px) {
+    .product-main {
+        gap: 40px;
+    }
+
+    .commitment-content-col {
+        padding: 88px 56px;
+    }
+}
+
+@media (max-width: 1024px) {
+    main.page-wrapper>.container {
+        padding-top: 28px !important;
+    }
+
+    .product-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .product-gallery {
+        position: static !important;
+        top: auto !important;
+    }
+
+    .main-image-wrap {
+        aspect-ratio: 3 / 4;
+    }
+
+    .product-details {
+        padding-top: 0 !important;
+    }
+
+    .add-to-cart-row {
+        margin-top: 20px;
+        margin-bottom: 36px;
+    }
+
+    .product-commitment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .commitment-content-col {
+        padding: 64px 40px;
+    }
+
+    .reviews-section .review-item {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .reviewer-info,
+    .review-text,
+    .review-meta {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        margin-bottom: 20px;
+    }
+
+    .product-details h1 {
+        font-size: 32px !important;
+    }
+
+    .product-details .subtitle {
+        margin-bottom: 0 !important;
+    }
+
+    .pill-group {
+        flex-wrap: wrap;
+    }
+
+    .pill-btn {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 120px;
+    }
+
+    .scent-content {
+        padding: 28px;
+    }
+
+    .scent-name {
+        font-size: 24px;
+    }
+
+    .related-products h2,
+    .reviews-section h2,
+    .scents-section h2 {
+        font-size: 26px;
+        margin-bottom: 32px;
+    }
+
+    .accordion-wrapper .accordion-header {
+        padding: 18px;
+    }
+
+    .accordion-wrapper .accordion-body {
+        padding: 0 18px 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .add-to-cart-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .qty-selector,
+    .btn-add-bag {
+        width: 100%;
+    }
+
+    .btn-add-bag {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .commitment-content-col {
+        padding: 48px 20px;
+    }
+
+    .commitment-content-col h2 {
+        font-size: 26px;
+    }
+
+    .testimonial-content {
+        max-width: none !important;
+    }
+}
