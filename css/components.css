@@ -22,7 +22,7 @@
 /* Base sizing */
 .btn-solid,
 .btn-outline {
-    padding: 18px 40px;
+    padding: 18px 60px;
 }
 
 .btn-hero {
@@ -86,10 +86,10 @@
 /* Global Eyebrow Style */
 .eyebrow {
     font-family: var(--font-sans);
-    font-size: var(--text-micro);
+    font-size: var(--text-body);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-taupe);
+    color: var(--color-slate);
     display: block;
     margin-bottom: var(--space-md);
 }
@@ -157,7 +157,7 @@
 
 .announcement-currency {
     position: absolute;
-    right: 0;
+    right: var(--gutter);
 }
 
 /* --- SEARCH OVERLAY --- */
@@ -209,7 +209,6 @@
     justify-content: center;
     z-index: var(--z-header);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-bottom: 1px solid rgba(206, 197, 184, 0.4);
 }
 
 .header-scrolled {
@@ -226,6 +225,9 @@
     align-items: center;
 }
 
+.header-top.container {
+    padding: 0 var(--gutter);
+}
 .header-left {
     display: flex;
     justify-content: flex-start;
@@ -239,7 +241,11 @@
 
 .header-center {
     text-align: center;
-    padding: 20px 0 14px 0;
+    padding: 36px 0 24px 0;
+}
+
+.logo-long img{
+   height: 30px;
 }
 
 .logo-text {
@@ -325,13 +331,14 @@
 }
 
 .mega-col h4 {
-    font-size: var(--text-micro);
+    font-size: var(--text-body);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 24px;
     border-bottom: 1px solid var(--color-slate);
     padding-bottom: 8px;
     color: var(--color-slate);
+    font-weight: 600;
 }
 
 .mega-col ul li {
@@ -339,13 +346,18 @@
 }
 
 .mega-col ul li a {
-    font-size: 13px;
-    color: var(--text-muted);
+    font-size: var(--text-body);
+    color: var(--color-mocha);
     transition: color 0.3s;
+    font-weight: 300;
 }
 
 .mega-col ul li a:hover {
     color: var(--color-slate);
+}
+.mega-col:first-child ul li:first-child a,
+.mega-col:nth-child(2) ul li:first-child a{
+    font-weight: 400;
 }
 
 .mega-image-col {
@@ -382,7 +394,6 @@
 
 .home-page .site-header {
     background-color: var(--bg-primary);
-    border-bottom-color: rgba(206, 197, 184, 0.4);
     backdrop-filter: none;
 }
 
@@ -643,6 +654,14 @@
     color: var(--color-slate);
 }
 
+.price-strikethrough {
+    font-size: var(--text-body-large);
+    color: var(--color-taupe);
+    font-weight: 300;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
 .product-btn {
     width: 100%;
     font-size: var(--text-small);
@@ -684,10 +703,17 @@
 }
 
 .stars {
-    font-size: 16px;
-    letter-spacing: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin-bottom: 48px;
-    color: var(--color-taupe);
+}
+
+.stars img {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 .testimonials-slider {
@@ -728,27 +754,27 @@
 }
 
 .quote-mark.right {
-    right: 18px;
+    right: 0;
     /* Adjusted to balance visually as in screenshot */
 }
 
 .testimonial-text {
-    font-size: 20px;
+    font-size: var(--text-body-large);
     line-height: 1.6;
     color: var(--color-taupe);
     font-style: italic;
     opacity: 0.8;
-    max-width: 800px;
     margin: 0 auto 32px;
+    font-weight: 300;
 }
 
 .testimonial-author {
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 700;
+    font-size: var(--text-body-large);
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-mocha);
+    color: var(--color-slate);
 }
 
 .testimonials-section .slider-dots {
@@ -780,9 +806,12 @@
     background-color: var(--bg-primary);
     padding: var(--space-4xl) 0;
 }
-
+.section-block.commitment-section{
+    padding:var(--gutter) 0;
+}
 .commitment-section .container {
     align-items: center;
+    gap:0;
 }
 
 .commitment-image img {
@@ -792,16 +821,32 @@
 }
 
 .commitment-text {
-    padding-left: var(--gutter);
+    padding: 0 var(--gutter);
 }
 
 .commitment-text h2 {
     font-family: var(--font-serif);
-    font-size: 40px;
+    font-size: var(--text-h1);
     line-height: 1.1;
     color: var(--color-taupe);
     margin-bottom: var(--space-xl);
     text-transform: uppercase;
+}
+
+.home-page .commitment-text h2 {
+    position: relative;
+    padding-bottom: 22px;
+    margin-bottom: 42px;
+}
+
+.home-page .commitment-text h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 190px;
+    height: 1px;
+    background-color: var(--color-taupe);
 }
 
 .commitment-items {
@@ -813,21 +858,22 @@
 
 .commitment-item h3 {
     font-family: var(--font-sans);
-    font-size: var(--text-small);
-    font-weight: 700;
-    color: var(--color-mocha);
+    font-size: var(--text-body-large);
+    font-weight: 600;
+    color: var(--color-slate);
     margin-bottom: var(--space-xs);
     text-transform: none;
 }
 
 .commitment-item p {
-    font-size: var(--text-small);
-    color: var(--color-taupe);
+    font-size: var(--text-body-large);
+    color: var(--color-slate);
     line-height: 1.6;
+    font-weight: 300;
 }
 
 .commitment-link {
-    font-size: var(--text-micro);
+    font-size: var(--text-small);
     letter-spacing: 0.1em;
     color: var(--color-mocha);
     text-transform: uppercase;
@@ -874,7 +920,6 @@
 }
 
 .collection-content {
-    max-width: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -882,7 +927,7 @@
 
 .collection-card h3 {
     font-family: var(--font-serif);
-    font-size: 28px;
+    font-size: 36px;
     color: var(--color-mocha);
     margin-bottom: var(--space-md);
     letter-spacing: 0.02em;
@@ -890,10 +935,12 @@
 }
 
 .collection-card p {
-    font-size: var(--text-small);
-    color: var(--color-taupe);
+    font-size: var(--text-body-large);
+    color: var(--color-mocha);
     line-height: 1.6;
     margin-bottom: var(--space-lg);
+    font-weight: 300;
+    padding: 0 15%;
 }
 
 .collection-card .btn-outline {
@@ -902,6 +949,9 @@
 }
 
 /* --- 7. STORY SPLIT SECTION --- */
+section.story-split {
+    padding: 0;
+}
 .story-split {
     background-color: var(--bg-secondary);
     width: 100%;
@@ -928,19 +978,19 @@
 
 .story-text-block h2 {
     font-family: var(--font-serif);
-    font-size: 40px;
+    font-size: var(--text-h1);
     line-height: 1.1;
     margin-bottom: var(--space-lg);
     color: var(--color-mocha);
-    max-width: 600px;
     text-transform: uppercase;
 }
 
 .story-text-block p {
-    color: var(--color-taupe);
+    color: var(--color-mocha);
     line-height: 1.6;
     margin-bottom: var(--space-xl);
-    font-size: var(--text-body);
+    font-size: var(--text-body-large);
+    font-weight: 300;
 }
 
 .story-img-block {
@@ -981,22 +1031,25 @@
     color: var(--color-mocha);
 }
 
+.site-footer .container {
+    padding: 0 var(--gutter);
+}
 .footer-main-grid {
     display: grid;
-    grid-template-columns: 3.5fr 1fr 1fr 1fr 1.5fr;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr;
     gap: 56px;
     align-items: start;
 }
 
 /* Newsletter Section */
 .footer-newsletter-col {
-    padding-right: 60px;
+    padding-right: 10px;
 }
 
 .newsletter-heading {
-    font-size: 32px;
+    font-size: var(--text-h3);
     font-weight: 400;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
     letter-spacing: -0.01em;
 }
 
@@ -1011,7 +1064,7 @@
     width: 100%;
     height: 64px;
     background-color: rgba(235, 231, 224, 0.4);
-    border: 1px solid var(--color-clay);
+    border: 1px solid var(--color-taupe);
     padding: 0 20px;
     font-size: 14px;
     letter-spacing: 0.1em;
@@ -1025,19 +1078,10 @@
 }
 
 .newsletter-form-stacked button {
-    background-color: var(--color-mocha);
-    color: var(--color-sand);
     width: 154px;
-    height: 54px;
-    font-size: 13px;
     letter-spacing: 0.1em;
-    font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-.newsletter-form-stacked button:hover {
-    background-color: var(--color-slate);
 }
 
 .footer-social-group {
@@ -1063,8 +1107,8 @@
 
 /* Link Columns */
 .footer-col-title {
-    font-family: var(--font-sans);
-    font-size: 16px;
+    font-family: var(--font-serif);
+    font-size: var(--text-body-large);
     font-weight: 400;
     letter-spacing: 0.05em;
     margin-bottom: 28px;
@@ -1078,9 +1122,10 @@
 }
 
 .footer-link-list a {
-    font-size: 15px;
-    color: var(--color-taupe);
+    font-size: var(--text-body-large);
+    color: var(--color-mocha);
     transition: opacity 0.3s;
+    font-weight: 300;
 }
 
 .footer-link-list a:hover {
@@ -1091,7 +1136,7 @@
 .footer-divider-rule {
     width: 100%;
     height: 1px;
-    background-color: rgba(63, 50, 41, 0.15);
+    background-color: rgba(163, 147, 130, 0.5);
     margin: 80px 0 48px;
 }
 
@@ -1149,13 +1194,11 @@
     }
 
     .home-page .best-sellers {
-        min-height: 1074px;
         display: flex;
         align-items: center;
     }
 
     .home-page .collections-section {
-        min-height: 1742px;
         display: flex;
         align-items: center;
     }
@@ -1166,13 +1209,12 @@
     }
 
     .home-page .testimonials-section {
-        min-height: 686px;
+        min-height: 700px;
         display: flex;
         align-items: center;
     }
 
     .home-page .site-footer {
-        min-height: 849px;
         display: flex;
         align-items: center;
     }
