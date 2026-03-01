@@ -55,3 +55,8 @@ As requested, the CSS architecture will be modularized into the exact requested 
 - `/v2/css/responsive.css` (Media queries anchored from 1920 baseline: 1920, 1440, 1024, 768, 375)
 
 *Assumptions:* The existing `assets/css` directory will be deprecated in favor of this new `/css/` root as mandated inside the `/v2/` directory to satisfy Phase 2 architectural constraints. We will refactor HTML files to respect these modular links.
+
+## 7. Superseding Notes (2026-03-01)
+- Implemented baseline section-row behavior using `--section-max: 1920px`, `--container-max: 1800px`, and `--gutter: 60px`.
+- Added explicit boxed verification assets for widths above `1920` in `docs/qa/final/*-2200.png`.
+- Responsive verification evidence for `1920`, `1440`, `1024`, `768`, `390`, and `375` is now captured in `docs/qa/final/`.

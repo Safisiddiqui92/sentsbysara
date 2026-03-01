@@ -72,3 +72,9 @@ Desktop mega navigation must trigger via CSS `:hover` states with a `0.3s` opaci
 - [ ] Are CSS files minified or structured properly?
 - [ ] Have all magic numbers (`23px`, `19px`) been purged?
 - [ ] Is horizontal scroll eradicated on `375px` views?
+
+## 12. Superseding Notes (2026-03-01)
+- Shared layout contract implemented in `css/design-tokens.css`, `css/layout.css`, `css/components.css`, and `css/responsive.css` with section-row baseline (`1920`) and default container (`1800`).
+- Route templates are now distinct: `your-story.html`, `our-story.html`, and `contact.html` no longer share byte-identical content.
+- Commerce state is unified through `assets/js/cart-state.js`, with page behavior in `assets/js/cart.js`, `assets/js/checkout.js`, `assets/js/product.js`, and `assets/js/shop.js`.
+- Form validation now runs through `assets/js/forms.js` for story/contact experiences.

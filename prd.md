@@ -477,3 +477,9 @@ Each credential is separated by a subtle hairline border.
 ---
 
 End of PRD
+
+## Implementation Notes (2026-03-01)
+- Added dedicated route templates and styling for `our-story.html` (`assets/css/our-story.css`) and `contact.html` (`assets/css/contact.css`).
+- Added shared commerce persistence via `assets/js/cart-state.js` and flow-specific modules (`cart.js`, `checkout.js`).
+- Added shared form validation for story/contact flows via `assets/js/forms.js`.
+- Checkout now uses a focused checkout footer layout rather than the heavy global newsletter/footer block.
